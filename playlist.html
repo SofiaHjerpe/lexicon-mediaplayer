@@ -7,34 +7,40 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <link href="style.css" />
+    <script src="app.js"></script>
     <title>Document</title>
   </head>
   <body>
     <header></header>
-    <audio controls>
+    <audio controls id="rush">
       <source src="music/rush.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
-    <audio controls>
+    <audio controls class="people">
       <source src="music/people.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
-    <audio controls>
+    <audio controls class="calm">
       <source src="music/calm.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
-    <audio controls>
+    <audio controls class="formyhand">
       <source src="music/formyhand.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
-    <audio controls>
+    <audio controls class="playboy">
       <source src="music/playboy.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
     <div id="audio-player-container">
       <p>Audio Player</p>
       <!-- swaps with pause icon -->
-      <button id="play-icon"><span class="material-icons">play-arrow</span></button>
+      <button id="play-icon" onclick="play()">
+        <i class="material-icons" id="icon_text">play_circle</i>
+      >
+        <!-- <i class="material-icons" id="material-icons">pause_circle</i> -->
+      </button>
     </div>
   </body>
 </html>

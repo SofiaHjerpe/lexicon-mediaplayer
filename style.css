@@ -1,0 +1,10 @@
+fa-play {
+  .material-icons {
+    display: block;
+  }
+}
+fa-pause {
+  .material-icons {
+    display: none;
+  }
+}

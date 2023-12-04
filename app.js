@@ -1,12 +1,17 @@
-let playIconContainer = document.getElementById('#play-icon')
+let isPlaying = false;
+function play(audio) {
+  audio = document.getElementById("rush");
 
+  audio.play();
 
-playIconContainer.addEventListener("click", () => {
-  if (state === "play") {
-    animation.playSegments([14, 27], true);
-    state = "pause";
-  } else {
-    animation.playSegments([0, 14], true);
-    state = "play";
-  }
-});
+  isPlaying ? audio.pause() : audio.play();
+
+  audio.onplaying = function () {
+    isPlaying = true;
+    document.getElementById("icon_text").innerHTML = "pause_circle";
+  };
+  audio.onpause = function () {
+    isPlaying = false;
+    document.getElementById("icon_text").innerHTML = "play_circle";
+  };
+}
