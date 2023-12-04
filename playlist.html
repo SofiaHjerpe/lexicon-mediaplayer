@@ -17,19 +17,19 @@
       <source src="music/rush.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
-    <audio controls class="people">
+    <audio controls id="people">
       <source src="music/people.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
-    <audio controls class="calm">
+    <audio controls id="calm">
       <source src="music/calm.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
-    <audio controls class="formyhand">
+    <audio controls id="formyhand">
       <source src="music/formyhand.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
-    <audio controls class="playboy">
+    <audio controls id="playboy">
       <source src="music/playboy.mp3" type="audio/mpeg" />
       Your browser does not support the audio element.
     </audio>
@@ -38,7 +38,28 @@
       <!-- swaps with pause icon -->
       <button id="play-icon" onclick="play()">
         <i class="material-icons" id="icon_text">play_circle</i>
-      >
+
+        <!-- <i class="material-icons" id="material-icons">pause_circle</i> -->
+      </button>
+      <button id="play-icon-first" onclick="playFirst()">
+        <i class="material-icons" id="icon_text_first">play_circle</i>
+
+        <!-- <i class="material-icons" id="material-icons">pause_circle</i> -->
+      </button>
+
+      <button id="play-icon-sec" onclick="playSecond()">
+        <i class="material-icons" id="icon_text_second">play_circle</i>
+
+        <!-- <i class="material-icons" id="material-icons">pause_circle</i> -->
+      </button>
+      <button id="play-icon-third" onclick="playThird()">
+        <i class="material-icons" id="icon_text_third">play_circle</i>
+
+        <!-- <i class="material-icons" id="material-icons">pause_circle</i> -->
+      </button>
+      <button id="play-icon-fourth" onclick="playFourth()">
+        <i class="material-icons" id="icon_text_fourth">play_circle</i>
+
         <!-- <i class="material-icons" id="material-icons">pause_circle</i> -->
       </button>
     </div>
