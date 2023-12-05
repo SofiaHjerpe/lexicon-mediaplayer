@@ -13,7 +13,7 @@ function play(audio, playMusic) {
   let songPlay = document.querySelector(".song-play p");
   let btnv = document.getElementById("icon_text_visible");
 
-  let track = document.querySelector("s-track");
+  let backgroundIm = document.querySelector("playlist");
   audio = document.getElementById("rush");
   soundImg = document.querySelector(".hideImage");
 
@@ -29,6 +29,8 @@ function play(audio, playMusic) {
     btn.innerHTML = "pause_circle";
     soundImg.classList.remove("hideImage");
     soundImg.classList.add("song_image");
+
+    backgroundIm.classList.add("playlist");
   };
   audio.onpause = function () {
     isPlaying = false;
@@ -47,6 +49,7 @@ function playFirst(audio1, playMusic) {
   let btnv = document.getElementById("icon_text_visible-o");
   audio1 = document.getElementById("people");
   soundImg = document.querySelector(".hideImage1");
+
   audio1.play();
 
   isPlayingOne ? audio1.pause() : audio1.play();
