@@ -11,8 +11,9 @@
     <script src="app.js"></script>
     <title>Document</title>
   </head>
-  <body class="playL">
-    <section class="playlist">
+  <body >
+    <div class="playL">
+    <div class="playlist">
     <header>
       <nav>
         <div>
@@ -78,7 +79,14 @@
     <div class="audio-player" id="audio-player-container">
       <section class="audio-player">
         <section class="visible-s-track">
-          <p>Rush- Ayra Starr</p>
+          
+          <section>
+            <img class="image" src="sound_img.jpg" alt="img">
+            <div>
+          <strong>Rush</strong> 
+          <p>Ayra Starr</p> 
+                  </div>
+          </section>
           <button id="play-icon-visible" onclick="play()">
             <i class="material-icons" id="icon_text_visible"> play_circle </i>
 
@@ -86,7 +94,14 @@
           </button>
         </section>
         <section class="visible-s-track">
-          <p>People</p>
+      
+          <section>
+                <img class="image" src="song_img1.jpg" alt="img">
+                  <div>
+          <strong>People</strong> 
+          <p>Libianca, Ayra Starr, Omah Lay-People</p> 
+          </div>
+          </section>
           <button id="play-icon-visible-o" onclick="playFirst()">
             <i class="material-icons" id="icon_text_visible-o"> play_circle </i>
 
@@ -94,7 +109,15 @@
           </button>
         </section>
         <section class="visible-s-track">
-          <p>Calm down</p>
+           
+          <section>
+              <img class="image" src="song_img2.jpg" alt="img">
+              <div>
+          <strong>Calm down</strong>
+          <p>Rema</p>
+          </div>
+
+          </section>
           <button id="play-icon-visible-s" onclick="playSecond()">
             <i class="material-icons" id="icon_text_visible-s"> play_circle </i>
 
@@ -102,7 +125,14 @@
           </button>
         </section>
         <section class="visible-s-track">
-          <p>For my hand</p>
+            
+         <section>
+           <img class="image" src="song_img3.jpg" alt="img">
+           <div>
+          <strong>For My Hand</strong> 
+          <p>Burna Boy, Ed Sheeran</p> 
+          </div>
+          </section>
           <button id="play-icon-visible-t" onclick="playThird()">
             <i class="material-icons" id="icon_text_visible-t"> play_circle </i>
 
@@ -110,7 +140,13 @@
           </button>
           </section>
           <section class="visible-s-track">
-            <p>Playboy</p>
+            <section>
+              <img class="image" src="song_img4.jpg" alt="img">
+              <div>
+          <strong>Playboy</strong> 
+          <p>Fireboy DML</p> 
+          </div>
+          </section>
             <button id="play-icon-visible-f" onclick="playFourth()">
               <i class="material-icons" id="icon_text_visible-f"> play_circle </i>
 
@@ -118,8 +154,7 @@
             </button>
           </section>
         </section>
-     
-      <p>Audio Player</p>
+ 
       <section class="playing">
         <section class="track">
           <!-- swaps with pause icon -->
@@ -188,6 +223,7 @@
         </section>
       </section>
     </div>
-    </section>
+  </div>
+  </div>
   </body>
 </html>
