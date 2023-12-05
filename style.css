@@ -35,8 +35,10 @@ audio {
   background-color: #ccc;
   max-width: 400px;
 }
-showImage {
-  display: block;
+.song_image {
+  background-image: url(sound_img.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   width: 100px;
   height: 180px;
 }
