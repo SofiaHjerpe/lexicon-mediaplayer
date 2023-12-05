@@ -4,12 +4,22 @@
   align-items: center;
   justify-content: center;
 }
-.hideImage {
+.hideImage,
+.hideImage1,
+.hideImage2,
+.hideImage3,
+.hideImage4 {
   display: none;
+  background-image: none;
 }
-.song-play {
+.song-play,
+.song-play1,
+.song-play2,
+.song-play3,
+.song-play4 {
   color: purple;
   font-weight: bold;
+  align-items: center;
 }
 .playing {
   display: flex;
@@ -37,6 +47,34 @@ audio {
 }
 .song_image {
   background-image: url(sound_img.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100px;
+  height: 180px;
+}
+.song_image1 {
+  background-image: url(song_img1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100px;
+  height: 180px;
+}
+.song_image2 {
+  background-image: url(song_img2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100px;
+  height: 180px;
+}
+.song_image3 {
+  background-image: url(song_img3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100px;
+  height: 180px;
+}
+.song_image4 {
+  background-image: url(song_img4.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   width: 100px;
