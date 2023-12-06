@@ -2,11 +2,13 @@ nav {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  position: fixed;
   height: 60px;
   background-color: #192636aa;
   color: #fff;
   align-items: center;
   margin-bottom: 0;
+  top: 0;
   font-family: roboto;
 }
 
@@ -36,9 +38,20 @@ nav > div {
 
   width: 100%;
 }
+.song-play4 {
+  display: flex;
+  flex-direction: row;
+  width: 300px;
+  justify-content: space-between;
+}
+.play-row > .material-icons {
+  color: #fff;
+  font-size: 24px;
+}
 .playlist {
   background-image: url(sound_img.jpg);
   background-repeat: no-repeat;
+  top: 60px;
   background-size: cover;
   background-position: center;
   z-index: -1;
@@ -55,6 +68,7 @@ button {
   border-color: none;
   border: 1px solid transparent;
 }
+
 .track {
   display: flex;
   flex-direction: column;
@@ -81,12 +95,16 @@ button {
 .song-play p {
   font-family: Roboto;
 }
+#shuffle {
+  color: #ffffff7d;
+}
 
 #audio-player-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   margin: 0;
+  margin-top: 60px;
   gap: 10px;
   top: 100%;
 }
@@ -104,13 +122,33 @@ button {
   padding: 16px;
   margin-top: 0;
   margin-inline: 0;
+  margin-top: 60px;
   justify-content: center;
   width: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: rgba(24, 37, 52, 0.575);
 }
+.play-row > button > .material-icons {
+  font-size: 60px;
+}
+.play-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 300px;
+}
+
 audio {
   display: none;
+}
+.visible-s-track:nth-child(1) {
+  margin-top: 60px;
+}
+.track > .material-icons {
+  font-size: 30px;
+}
+.visible-s-track > button > .material-icons {
+  font-size: 18px;
 }
 .visible-s-track {
   display: flex;

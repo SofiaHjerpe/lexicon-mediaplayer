@@ -32,7 +32,7 @@ function play(audio, playMusic) {
     songPlayText.innerHTML = "Ayra Starr-Rush : Is Playing";
 
     btn.innerHTML =
-      "repeat 	&nbsp	&nbsp	&nbsp	&nbsp   keyboard_double_arrow_left  pause_circle  keyboard_double_arrow_right 	&nbsp	&nbsp	&nbsp	&nbsp shuffle";
+      "keyboard_double_arrow_left  pause_circle  keyboard_double_arrow_right";
     soundImg.classList.remove("hideImage");
     soundImg.classList.add("song_image");
 
@@ -45,7 +45,7 @@ function play(audio, playMusic) {
       "add_circle &nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp	&nbsp favorite";
     songPlayText.innerHTML = "Ayra Starr-Rush : Is Paused";
     btn.innerHTML =
-      "repeat 	&nbsp	&nbsp	&nbsp	&nbsp   keyboard_double_arrow_left  play_circle  keyboard_double_arrow_right 	&nbsp	&nbsp	&nbsp	&nbsp shuffle";
+      "keyboard_double_arrow_left  play_circle  keyboard_double_arrow_right";
     soundImg.classList.remove("song_image");
     soundImg.classList.add("hideImage");
   };
@@ -53,7 +53,6 @@ function play(audio, playMusic) {
 
 function playFirst(audio1, playMusic) {
   let btn1 = document.getElementById("icon_text_first");
-  let songPlay = document.querySelector(".song-play1 > .material-icons");
   let songPlayText = document.querySelector(".song-play1 >  p");
   let btnv = document.getElementById("icon_text_visible-o");
   audio1 = document.getElementById("people");
@@ -66,23 +65,19 @@ function playFirst(audio1, playMusic) {
   audio1.onplaying = function () {
     isPlayingOne = true;
     btnv.innerHTML = "pause_circle";
-    songPlay.innerHTML =
-      "add_circle &nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp	&nbsp favorite";
     songPlayText.innerHTML =
       "Libianca, Ayra Starr, Omah Lay-People : Is Playing";
     btn1.innerHTML =
-      "repeat 	&nbsp	&nbsp	&nbsp	&nbsp   keyboard_double_arrow_left  pause_circle  keyboard_double_arrow_right 	&nbsp	&nbsp	&nbsp	&nbsp shuffle";
+      "keyboard_double_arrow_left  pause_circle  keyboard_double_arrow_right";
     soundImg.classList.remove("hideImage1");
     soundImg.classList.add("song_image1");
   };
   audio1.onpause = function () {
     isPlayingOne = false;
     btnv.innerHTML = "play_circle";
-    songPlay.innerHTML =
-      "add_circle &nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp	&nbsp favorite";
     songPlayText.innerHTML = "Libianca, Ayra Starr, Omah Lay-People : Paused";
     btn1.innerHTML =
-      "repeat 	&nbsp	&nbsp	&nbsp	&nbsp   keyboard_double_arrow_left  play_circle  keyboard_double_arrow_right 	&nbsp	&nbsp	&nbsp	&nbsp shuffle";
+      "keyboard_double_arrow_left  play_circle  keyboard_double_arrow_right";
     soundImg.classList.remove("song_image1");
     soundImg.classList.add("hideImage1");
   };
@@ -91,7 +86,6 @@ function playFirst(audio1, playMusic) {
 function playSecond(audio2, playMusic) {
   let btn2 = document.getElementById("icon_text_second");
   let btnv = document.getElementById("icon_text_visible-s");
-  let songPlay = document.querySelector(".song-play2 > .material-icons");
   let songPlayText = document.querySelector(".song-play2 >  p");
   audio2 = document.getElementById("calm");
   soundImg = document.querySelector(".hideImage2");
@@ -103,22 +97,18 @@ function playSecond(audio2, playMusic) {
   audio2.onplaying = function () {
     isPlayingSecond = true;
     btnv.innerHTML = "pause_circle";
-    songPlay.innerHTML =
-      "add_circle &nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp	&nbsp favorite";
     songPlayText.innerHTML = "Rema-Calm Down : IsPlaying";
     btn2.innerHTML =
-      "repeat 	&nbsp	&nbsp	&nbsp	&nbsp   keyboard_double_arrow_left  pause_circle  keyboard_double_arrow_right 	&nbsp	&nbsp	&nbsp	&nbsp shuffle";
+      "keyboard_double_arrow_left  pause_circle  keyboard_double_arrow_right";
     soundImg.classList.remove("hideImage2");
     soundImg.classList.add("song_image2");
   };
   audio2.onpause = function () {
     isPlayingSecond = false;
     btnv.innerHTML = "play_circle";
-    songPlay.innerHTML =
-      "add_circle &nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp	&nbsp favorite";
     songPlayText.innerHTML = "Rema-Calm Down : Paused";
     btn2.innerHTML =
-      "repeat 	&nbsp	&nbsp	&nbsp	&nbsp   keyboard_double_arrow_left  play_circle  keyboard_double_arrow_right 	&nbsp	&nbsp	&nbsp	&nbsp shuffle";
+      "keyboard_double_arrow_left  play_circle  keyboard_double_arrow_right";
     soundImg.classList.remove("song_image2");
     soundImg.classList.add("hideImage2");
   };
@@ -126,7 +116,6 @@ function playSecond(audio2, playMusic) {
 function playThird(audio3, playMusic) {
   let btn3 = document.getElementById("icon_text_third");
   let btnv = document.getElementById("icon_text_visible-t");
-  let songPlay = document.querySelector(".song-play3 > .material-icons");
   let songPlayText = document.querySelector(".song-play3 >  p");
   audio3 = document.getElementById("formyhand");
   soundImg = document.querySelector(".hideImage3");
@@ -137,22 +126,18 @@ function playThird(audio3, playMusic) {
   audio3.onplaying = function () {
     isPlayingThird = true;
     btnv.innerHTML = "pause_circle";
-    songPlay.innerHTML =
-      "add_circle &nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp	&nbsp favorite";
     songPlayText.innerHTML = "Burna Boy, Ed Sheeran-For my hand : Is Playing";
     btn3.innerHTML =
-      "repeat 	&nbsp	&nbsp	&nbsp	&nbsp   keyboard_double_arrow_left  pause_circle  keyboard_double_arrow_right 	&nbsp	&nbsp	&nbsp	&nbsp shuffle";
+      "keyboard_double_arrow_left  pause_circle  keyboard_double_arrow_right";
     soundImg.classList.remove("hideImage3");
     soundImg.classList.add("song_image3");
   };
   audio3.onpause = function () {
     isPlayingThird = false;
     btnv.innerHTML = "play_circle";
-    songPlay.innerHTML =
-      "add_circle &nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp	&nbsp favorite";
     songPlayText.innerHTML = "Burna Boy, Ed Sheeran-For my hand : Paused";
     btn3.innerHTML =
-      "repeat 	&nbsp	&nbsp	&nbsp	&nbsp   keyboard_double_arrow_left  play_circle  keyboard_double_arrow_right 	&nbsp	&nbsp	&nbsp	&nbsp shuffle";
+      "keyboard_double_arrow_left  play_circle  keyboard_double_arrow_right";
     soundImg.classList.remove("song_image3");
     soundImg.classList.add("hideImage3");
   };
@@ -160,7 +145,6 @@ function playThird(audio3, playMusic) {
 
 function playFourth(audio4, playMusic) {
   let btn4 = document.getElementById("icon_text_fourth");
-  let songPlay = document.querySelector(".song-play4 > .material-icons");
   let songPlayText = document.querySelector(".song-play4 >  p");
   let btnv = document.getElementById("icon_text_visible-f");
   audio4 = document.getElementById("playboy");
@@ -173,22 +157,18 @@ function playFourth(audio4, playMusic) {
   audio4.onplaying = function () {
     isPlayingFourth = true;
     btnv.innerHTML = "pause_circle";
-    songPlay.innerHTML =
-      "add_circle &nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp	&nbsp favorite";
     songPlayText.innerHTML = "Fireboy DML- Playboy : Is Playing";
     btn4.innerHTML =
-      "repeat 	&nbsp	&nbsp	&nbsp	&nbsp   keyboard_double_arrow_left  pause_circle  keyboard_double_arrow_right 	&nbsp	&nbsp	&nbsp	&nbsp shuffle";
+      " keyboard_double_arrow_left  pause_circle  keyboard_double_arrow_right";
     soundImg.classList.remove("hideImage4");
     soundImg.classList.add("song_image4");
   };
   audio4.onpause = function () {
     isPlayingFourth = false;
     btnv.innerHTML = "play_circle";
-    songPlay.innerHTML =
-      "add_circle &nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp	&nbsp favorite";
     songPlayText.innerHTML = "Fireboy DML- Playboy : Paused";
     btn4.innerHTML =
-      "repeat 	&nbsp	&nbsp	&nbsp	&nbsp   keyboard_double_arrow_left  play_circle  keyboard_double_arrow_right 	&nbsp	&nbsp	&nbsp	&nbsp shuffle";
+      "keyboard_double_arrow_left  play_circle  keyboard_double_arrow_right";
     soundImg.classList.remove("song_image4");
     soundImg.classList.add("hideImage4");
   };
