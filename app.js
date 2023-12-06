@@ -27,10 +27,12 @@ function play(audio, playMusic) {
     isPlaying = true;
     playMusic = true;
     btnv.innerHTML = "pause_circle";
-    songPlay.innerHTML = "add_circle  favorite";
+    songPlay.innerHTML =
+      "add_circle &nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp	&nbsp favorite";
     songPlayText.innerHTML = "Ayra Starr-Rush : Is Playing";
 
-    btn.innerHTML = "pause_circle";
+    btn.innerHTML =
+      "repeat 	&nbsp	&nbsp	&nbsp	&nbsp   keyboard_double_arrow_left  pause_circle  keyboard_double_arrow_right 	&nbsp	&nbsp	&nbsp	&nbsp shuffle";
     soundImg.classList.remove("hideImage");
     soundImg.classList.add("song_image");
 
@@ -38,11 +40,12 @@ function play(audio, playMusic) {
   };
   audio.onpause = function () {
     isPlaying = false;
-    playMusic = false;
     btnv.innerHTML = "play_circle";
-    songPlay.innerHTML = " add_circle favorite";
+    songPlay.innerHTML =
+      "add_circle &nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp	&nbsp favorite";
     songPlayText.innerHTML = "Ayra Starr-Rush : Is Paused";
-    btn.innerHTML = "play_circle";
+    btn.innerHTML =
+      "repeat 	&nbsp	&nbsp	&nbsp	&nbsp   keyboard_double_arrow_left  play_circle  keyboard_double_arrow_right 	&nbsp	&nbsp	&nbsp	&nbsp shuffle";
     soundImg.classList.remove("song_image");
     soundImg.classList.add("hideImage");
   };
@@ -62,22 +65,24 @@ function playFirst(audio1, playMusic) {
 
   audio1.onplaying = function () {
     isPlayingOne = true;
-    playMusic = true;
     btnv.innerHTML = "pause_circle";
-    songPlay.innerHTML = "add_circle favorite";
+    songPlay.innerHTML =
+      "add_circle &nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp	&nbsp favorite";
     songPlayText.innerHTML =
       "Libianca, Ayra Starr, Omah Lay-People : Is Playing";
-    btn1.innerHTML = "pause_circle";
+    btn1.innerHTML =
+      "repeat 	&nbsp	&nbsp	&nbsp	&nbsp   keyboard_double_arrow_left  pause_circle  keyboard_double_arrow_right 	&nbsp	&nbsp	&nbsp	&nbsp shuffle";
     soundImg.classList.remove("hideImage1");
     soundImg.classList.add("song_image1");
   };
   audio1.onpause = function () {
     isPlayingOne = false;
-    playMusic = false;
     btnv.innerHTML = "play_circle";
-    songPlay.innerHTML = "add_circle favorite";
+    songPlay.innerHTML =
+      "add_circle &nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp	&nbsp favorite";
     songPlayText.innerHTML = "Libianca, Ayra Starr, Omah Lay-People : Paused";
-    btn1.innerHTML = "play_circle";
+    btn1.innerHTML =
+      "repeat 	&nbsp	&nbsp	&nbsp	&nbsp   keyboard_double_arrow_left  play_circle  keyboard_double_arrow_right 	&nbsp	&nbsp	&nbsp	&nbsp shuffle";
     soundImg.classList.remove("song_image1");
     soundImg.classList.add("hideImage1");
   };
@@ -97,21 +102,23 @@ function playSecond(audio2, playMusic) {
 
   audio2.onplaying = function () {
     isPlayingSecond = true;
-    playMusic = true;
     btnv.innerHTML = "pause_circle";
-    songPlay.innerHTML = "add_circle favorite";
+    songPlay.innerHTML =
+      "add_circle &nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp	&nbsp favorite";
     songPlayText.innerHTML = "Rema-Calm Down : IsPlaying";
-    btn2.innerHTML = "pause_circle";
+    btn2.innerHTML =
+      "repeat 	&nbsp	&nbsp	&nbsp	&nbsp   keyboard_double_arrow_left  pause_circle  keyboard_double_arrow_right 	&nbsp	&nbsp	&nbsp	&nbsp shuffle";
     soundImg.classList.remove("hideImage2");
     soundImg.classList.add("song_image2");
   };
   audio2.onpause = function () {
     isPlayingSecond = false;
-    playMusic = false;
     btnv.innerHTML = "play_circle";
-    songPlay.innerHTML = "add_circle favorite";
+    songPlay.innerHTML =
+      "add_circle &nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp	&nbsp favorite";
     songPlayText.innerHTML = "Rema-Calm Down : Paused";
-    btn2.innerHTML = "play_circle";
+    btn2.innerHTML =
+      "repeat 	&nbsp	&nbsp	&nbsp	&nbsp   keyboard_double_arrow_left  play_circle  keyboard_double_arrow_right 	&nbsp	&nbsp	&nbsp	&nbsp shuffle";
     soundImg.classList.remove("song_image2");
     soundImg.classList.add("hideImage2");
   };
@@ -129,21 +136,23 @@ function playThird(audio3, playMusic) {
 
   audio3.onplaying = function () {
     isPlayingThird = true;
-    playMusic = true;
     btnv.innerHTML = "pause_circle";
-    songPlay.innerHTML = "add_circle favorite";
+    songPlay.innerHTML =
+      "add_circle &nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp	&nbsp favorite";
     songPlayText.innerHTML = "Burna Boy, Ed Sheeran-For my hand : Is Playing";
-    btn3.innerHTML = "pause_circle";
+    btn3.innerHTML =
+      "repeat 	&nbsp	&nbsp	&nbsp	&nbsp   keyboard_double_arrow_left  pause_circle  keyboard_double_arrow_right 	&nbsp	&nbsp	&nbsp	&nbsp shuffle";
     soundImg.classList.remove("hideImage3");
     soundImg.classList.add("song_image3");
   };
   audio3.onpause = function () {
     isPlayingThird = false;
-    playMusic = false;
     btnv.innerHTML = "play_circle";
-    songPlay.innerHTML = "add_circle favorite";
+    songPlay.innerHTML =
+      "add_circle &nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp	&nbsp favorite";
     songPlayText.innerHTML = "Burna Boy, Ed Sheeran-For my hand : Paused";
-    btn3.innerHTML = "play_circle";
+    btn3.innerHTML =
+      "repeat 	&nbsp	&nbsp	&nbsp	&nbsp   keyboard_double_arrow_left  play_circle  keyboard_double_arrow_right 	&nbsp	&nbsp	&nbsp	&nbsp shuffle";
     soundImg.classList.remove("song_image3");
     soundImg.classList.add("hideImage3");
   };
@@ -163,21 +172,23 @@ function playFourth(audio4, playMusic) {
 
   audio4.onplaying = function () {
     isPlayingFourth = true;
-    playMusic = true;
     btnv.innerHTML = "pause_circle";
-    songPlay.innerHTML = "favorite";
+    songPlay.innerHTML =
+      "add_circle &nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp	&nbsp favorite";
     songPlayText.innerHTML = "Fireboy DML- Playboy : Is Playing";
-    btn4.innerHTML = "pause_circle";
+    btn4.innerHTML =
+      "repeat 	&nbsp	&nbsp	&nbsp	&nbsp   keyboard_double_arrow_left  pause_circle  keyboard_double_arrow_right 	&nbsp	&nbsp	&nbsp	&nbsp shuffle";
     soundImg.classList.remove("hideImage4");
     soundImg.classList.add("song_image4");
   };
   audio4.onpause = function () {
     isPlayingFourth = false;
-    playMusic = false;
     btnv.innerHTML = "play_circle";
-    songPlay.innerHTML = "favorite";
+    songPlay.innerHTML =
+      "add_circle &nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp	&nbsp favorite";
     songPlayText.innerHTML = "Fireboy DML- Playboy : Paused";
-    btn4.innerHTML = "play_circle";
+    btn4.innerHTML =
+      "repeat 	&nbsp	&nbsp	&nbsp	&nbsp   keyboard_double_arrow_left  play_circle  keyboard_double_arrow_right 	&nbsp	&nbsp	&nbsp	&nbsp shuffle";
     soundImg.classList.remove("song_image4");
     soundImg.classList.add("hideImage4");
   };
