@@ -2,7 +2,6 @@ let isPlaying = false;
 let isPlayingOne = false;
 let isPlayingSecond = false;
 let isPlayingThird = false;
-let playMusic = false;
 let isPlayingFourth = false;
 let audio = document.getElementById("rush");
 let audio1 = document.getElementById("people");
@@ -10,8 +9,7 @@ let soundImg = document.querySelector(".hideImage");
 
 function play(audio, playMusic) {
   let btn = document.getElementById("icon_text");
-  let songPlay = document.querySelector(".song-play > .material-icons");
-  let songPlayText = document.querySelector(".song-play >  p");
+  let songPlayText = document.querySelector(".song-play > div >  p");
 
   let btnv = document.getElementById("icon_text_visible");
 
@@ -27,8 +25,6 @@ function play(audio, playMusic) {
     isPlaying = true;
     playMusic = true;
     btnv.innerHTML = "pause_circle";
-    songPlay.innerHTML =
-      "add_circle &nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp	&nbsp favorite";
     songPlayText.innerHTML = "Ayra Starr-Rush : Is Playing";
 
     btn.innerHTML =
@@ -41,8 +37,6 @@ function play(audio, playMusic) {
   audio.onpause = function () {
     isPlaying = false;
     btnv.innerHTML = "play_circle";
-    songPlay.innerHTML =
-      "add_circle &nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp	&nbsp &nbsp	&nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp &nbsp	&nbsp	&nbsp favorite";
     songPlayText.innerHTML = "Ayra Starr-Rush : Is Paused";
     btn.innerHTML =
       "keyboard_double_arrow_left  play_circle  keyboard_double_arrow_right";
@@ -53,7 +47,7 @@ function play(audio, playMusic) {
 
 function playFirst(audio1, playMusic) {
   let btn1 = document.getElementById("icon_text_first");
-  let songPlayText = document.querySelector(".song-play1 >  p");
+  let songPlayText = document.querySelector(".song-play1 > div > p");
   let btnv = document.getElementById("icon_text_visible-o");
   audio1 = document.getElementById("people");
   soundImg = document.querySelector(".hideImage1");
@@ -86,7 +80,7 @@ function playFirst(audio1, playMusic) {
 function playSecond(audio2, playMusic) {
   let btn2 = document.getElementById("icon_text_second");
   let btnv = document.getElementById("icon_text_visible-s");
-  let songPlayText = document.querySelector(".song-play2 >  p");
+  let songPlayText = document.querySelector(".song-play2 > div > p");
   audio2 = document.getElementById("calm");
   soundImg = document.querySelector(".hideImage2");
 
@@ -116,7 +110,7 @@ function playSecond(audio2, playMusic) {
 function playThird(audio3, playMusic) {
   let btn3 = document.getElementById("icon_text_third");
   let btnv = document.getElementById("icon_text_visible-t");
-  let songPlayText = document.querySelector(".song-play3 >  p");
+  let songPlayText = document.querySelector(".song-play3 > div > p");
   audio3 = document.getElementById("formyhand");
   soundImg = document.querySelector(".hideImage3");
   audio3.play();
@@ -145,7 +139,7 @@ function playThird(audio3, playMusic) {
 
 function playFourth(audio4, playMusic) {
   let btn4 = document.getElementById("icon_text_fourth");
-  let songPlayText = document.querySelector(".song-play4 >  p");
+  let songPlayText = document.querySelector(".song-play4 > div > p");
   let btnv = document.getElementById("icon_text_visible-f");
   audio4 = document.getElementById("playboy");
   soundImg = document.querySelector(".hideImage4");

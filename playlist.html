@@ -13,250 +13,265 @@
   </head>
   <body>
     <div class="playL">
-    <div class="playlist">
-    <header>
-      <nav>
-        <div>
-        <a href="index.html">
-          <button id="nav-icon" class="nav-button">
-           <span class="material-icons">
-          keyboard_arrow_left
-        </span>
-        </button>
-         </a>
-        </a>
-      </div>
-        <div>
-          <h4>Playlist - MyTopSongs</h4>
-        </div>
-        <div>
-          <span class="material-icons">
-          more_vert
-        </span>
-      </div>
-      </nav>
-    </header>
-    <audio
-      controls
-      id="rush"
-      ontimeupdate="document.getElementById('tracktime').innerHTML = Math.floor(this.currentTime) + ' sec' + ' ---------------------------- ' + Math.floor(this.duration / 60) + ' min'"
-    >
-      <source src="music/rush.mp3" type="audio/mpeg" />
-      Your browser does not support the audio element.
-    </audio>
-    <audio
-      controls
-      id="people"
-      ontimeupdate="document.getElementById('tracktime1').innerHTML = Math.floor(this.currentTime) + ' sec' + ' ---------------------------- ' + Math.floor(this.duration / 60) + ' min'"
-    >
-      <source src="music/people.mp3" type="audio/mpeg" />
-      Your browser does not support the audio element.
-    </audio>
-    <audio
-      controls
-      id="calm"
-      ontimeupdate="document.getElementById('tracktime2').innerHTML = Math.floor(this.currentTime) + ' sec' + ' ---------------------------- ' + Math.floor(this.duration / 60) + ' min'"
-    >
-      <source src="music/calm.mp3" type="audio/mpeg" />
-      Your browser does not support the audio element.
-    </audio>
-    <audio
-      controls
-      id="formyhand"
-      ontimeupdate="document.getElementById('tracktime3').innerHTML = Math.floor(this.currentTime) + ' sec' + ' ---------------------------- ' + Math.floor(this.duration / 60) + ' min'"
-    >
-      <source src="music/formyhand.mp3" type="audio/mpeg" />
-      Your browser does not support the audio element.
-    </audio>
-    <audio
-      controls
-      id="playboy"
-      ontimeupdate="document.getElementById('tracktime4').innerHTML = Math.floor(this.currentTime) + ' sec' + '---------------------------- ' + Math.floor(this.duration / 60) + ' min'"
-    >
-      <source src="music/playboy.mp3" type="audio/mpeg" />
-      Your browser does not support the audio element.
-    </audio>
-    <div class="audio-player" id="audio-player-container">
-      <section class="audio-player">
-        <section class="visible-s-track">
-          
-          <section>
-            <img class="image" src="sound_img.jpg" alt="img">
-            <div>
-          <p>Rush</p> 
-          <p>Ayra Starr</p> 
-                  </div>
-          </section>
-          <button id="play-icon-visible" onclick="play()">
-            <i class="material-icons" id="icon_text_visible"> play_circle </i>
-
-            <!-- <i class="material-icons" id="material-icons">pause_circle</i> -->
-          </button>
-        </section>
-        <section class="visible-s-track">
-      
-          <section>
-                <img class="image" src="song_img1.jpg" alt="img">
-                  <div>
-          <p>People</p> 
-          <p>Libianca, Ayra Starr, Omah Lay-People</p> 
+      <div class="playlist">
+        <nav>
+          <div>
+            <a href="index.html">
+              <button id="nav-icon" class="nav-button">
+                <span class="material-icons"> keyboard_arrow_left </span>
+              </button>
+            </a>
           </div>
-          </section>
-          <button id="play-icon-visible-o" onclick="playFirst()">
-            <i class="material-icons" id="icon_text_visible-o"> play_circle </i>
-
-            <!-- <i class="material-icons" id="material-icons">pause_circle</i> -->
-          </button>
-        </section>
-        <section class="visible-s-track">
-           
-          <section>
-              <img class="image" src="song_img2.jpg" alt="img">
-              <div>
-          <p>Calm down</p>
-          <p>Rema</p>
+          <div>
+            <h4>Playlist - MyTopSongs</h4>
           </div>
-
-          </section>
-          <button id="play-icon-visible-s" onclick="playSecond()">
-            <i class="material-icons" id="icon_text_visible-s"> play_circle </i>
-
-            <!-- <i class="material-icons" id="material-icons">pause_circle</i> -->
-          </button>
-        </section>
-        <section class="visible-s-track">
-            
-         <section>
-           <img class="image" src="song_img3.jpg" alt="img">
-           <div>
-          <p>For My Hand</p> 
-          <p>Burna Boy, Ed Sheeran</p> 
+          <div class="more">
+            <span class="material-icons"> more_vert </span>
           </div>
-          </section>
-          <button id="play-icon-visible-t" onclick="playThird()">
-            <i class="material-icons" id="icon_text_visible-t"> play_circle </i>
+        </nav>
+        <audio
+          controls
+          onplay=" document.querySelector('.visible-s-track button .material-icons').classList.add('highlightAudioIcon') + document.querySelector('.visible-s-track').classList.add('highlight-s-track')"
+          id="rush"
+          ontimeupdate="document.getElementById('tracktime').innerHTML = Math.floor(this.currentTime) + ' sec' + ' ---------------------------- ' + Math.floor(this.duration / 60) + ' min'"
+        >
+          <source src="music/rush.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <audio
+          controls
+          id="people"
+          ontimeupdate="document.getElementById('tracktime1').innerHTML = Math.floor(this.currentTime) + ' sec' + ' ---------------------------- ' + Math.floor(this.duration / 60) + ' min'"
+        >
+          <source src="music/people.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <audio
+          controls
+          id="calm"
+          ontimeupdate="document.getElementById('tracktime2').innerHTML = Math.floor(this.currentTime) + ' sec' + ' ---------------------------- ' + Math.floor(this.duration / 60) + ' min'"
+        >
+          <source src="music/calm.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <audio
+          controls
+          id="formyhand"
+          ontimeupdate="document.getElementById('tracktime3').innerHTML = Math.floor(this.currentTime) + ' sec' + ' ---------------------------- ' + Math.floor(this.duration / 60) + ' min'"
+        >
+          <source src="music/formyhand.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <audio
+          controls
+          id="playboy"
+          ontimeupdate="document.getElementById('tracktime4').innerHTML = Math.floor(this.currentTime) + ' sec' + '---------------------------- ' + Math.floor(this.duration / 60) + ' min'"
+        >
+          <source src="music/playboy.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
+        <div class="audio-player" id="audio-player-container">
+          <section class="audio-player">
+            <section class="visible-s-track">
+              <section>
+                <img class="image" src="sound_img.jpg" alt="img" />
+                <div>
+                  <p>Rush</p>
+                  <p>Ayra Starr</p>
+                </div>
+              </section>
+              <button id="play-icon-visible" onclick="play()">
+                <i class="material-icons" id="icon_text_visible">
+                  play_circle
+                </i>
 
-            <!-- <i class="material-icons" id="material-icons">pause_circle</i> -->
-          </button>
-          </section>
-          <section class="visible-s-track">
-            <section>
-              <img class="image" src="song_img4.jpg" alt="img">
-              <div>
-          <p>Playboy</p> 
-          <p>Fireboy DML</p> 
-          </div>
-          </section>
-            <button id="play-icon-visible-f" onclick="playFourth()">
-              <i class="material-icons" id="icon_text_visible-f"> play_circle </i>
+                <!-- <i class="material-icons" id="material-icons">pause_circle</i> -->
+              </button>
+            </section>
+            <section class="visible-s-track">
+              <section>
+                <img class="image" src="song_img1.jpg" alt="img" />
+                <div>
+                  <p>People</p>
+                  <p>Libianca, Ayra Starr, Omah Lay-People</p>
+                </div>
+              </section>
+              <button id="play-icon-visible-o" onclick="playFirst()">
+                <i class="material-icons" id="icon_text_visible-o">
+                  play_circle
+                </i>
 
-              <!-- <i class="material-icons" id="material-icons">pause_circle</i> -->
-            </button>
+                <!-- <i class="material-icons" id="material-icons">pause_circle</i> -->
+              </button>
+            </section>
+            <section class="visible-s-track">
+              <section>
+                <img class="image" src="song_img2.jpg" alt="img" />
+                <div>
+                  <p>Calm down</p>
+                  <p>Rema</p>
+                </div>
+              </section>
+              <button id="play-icon-visible-s" onclick="playSecond()">
+                <i class="material-icons" id="icon_text_visible-s">
+                  play_circle
+                </i>
+
+                <!-- <i class="material-icons" id="material-icons">pause_circle</i> -->
+              </button>
+            </section>
+            <section class="visible-s-track">
+              <section>
+                <img class="image" src="song_img3.jpg" alt="img" />
+                <div>
+                  <p>For My Hand</p>
+                  <p>Burna Boy, Ed Sheeran</p>
+                </div>
+              </section>
+              <button id="play-icon-visible-t" onclick="playThird()">
+                <i class="material-icons" id="icon_text_visible-t">
+                  play_circle
+                </i>
+
+                <!-- <i class="material-icons" id="material-icons">pause_circle</i> -->
+              </button>
+            </section>
+            <section class="visible-s-track">
+              <section>
+                <img class="image" src="song_img4.jpg" alt="img" />
+                <div>
+                  <p>Playboy</p>
+                  <p>Fireboy DML</p>
+                </div>
+              </section>
+              <button id="play-icon-visible-f" onclick="playFourth()">
+                <i class="material-icons" id="icon_text_visible-f">
+                  play_circle
+                </i>
+
+                <!-- <i class="material-icons" id="material-icons">pause_circle</i> -->
+              </button>
+            </section>
           </section>
-        </section>
- 
-      <section class="playing">
-        <section class="track">
-            <div class="hideImage"></div>
-          <!-- swaps with pause icon -->
-          <div class="song-play" >
-            <span class="material-icons"> 
-            </span>
-           
-           <p></p>
-            
-          
-        </div>
-      
-        
-          <span id="tracktime"> </span>
+
+          <section class="playing">
+            <section class="track">
+              <div class="hideImage"></div>
+              <!-- swaps with pause icon -->
+              <div class="song-play">
+                <div>
+                  <i class="material-icons">add_circle</i>
+                </div>
+                <div>
+                  <p></p>
+                </div>
+                <div>
+                  <i class="material-icons">favorite</i>
+                </div>
+              </div>
+
+              <span id="tracktime"> </span>
               <div class="play-row">
-         <i class="material-icons" id="rewind">repeat</i> 
-         <button id="play-icon" onclick="play(audio)">
-            <i class="material-icons" id="icon_text">''</i>
-          </button>
-             <i class="material-icons" id="shuffle">shuffle</i>
-             </div>
-         
-        </section>
-        <section class="track">
-           <div class="hideImage1"></div>
-          <div class="song-play1" >
-            <span class="material-icons"></span>
-           <p></p>   
-        </div>
-          <span id="tracktime1"> </span>
-          <div class="play-row">
-         <i class="material-icons" id="rewind">repeat</i> 
-         <button id="play-icon-first" onclick="playFirst(audio1)">
-            <i class="material-icons" id="icon_text_first">''</i>
-         
-
-            <!-- <i class="material-icons" id="material-icons">pause_circle</i> -->
-          </button>
-             <i class="material-icons" id="shuffle">shuffle</i>
-             </div>
-        </section>
-        <section class="track">
-          <div class="hideImage2"></div>
-          <div class="song-play2" >
-            <span class="material-icons">
-            </span>
-           <p></p>
-            
-        </div>
-          <span id="tracktime2"> </span>
-            <div class="play-row">
-         <i class="material-icons" id="rewind">repeat</i> 
-         <button id="play-icon-second" onclick="playSecond()">
-            <i class="material-icons" id="icon_text_second">''</i>
-          </button>
-             <i class="material-icons" id="shuffle">shuffle</i>
-             </div>
-        </section>
-        <section class="track">
-          <div class="hideImage3"></div>
-           <div class="song-play3" >
-             <span class="material-icons">
-            </span>
-           <p></p>
-          </div>
-          <span id="tracktime3"> </span>
-             <div class="play-row">
-         <i class="material-icons" id="rewind">repeat</i> 
-         <button id="play-icon-third" onclick="playThird()">
-            <i class="material-icons" id="icon_text_third">''</i>
-          </button>
-             <i class="material-icons" id="shuffle">shuffle</i>
-             </div>
-        </section>
-        <section class="track">
-          <div class="hideImage4"></div>
-           <div class="song-play4" >
-            <div>
-            <span class="material-icons">
-              add_circle
-            </span>
-            </div>
-           <p></p>  
-           <div>
-            <span class="material-icons">
-              favorite
-            </span> 
-            </div>
-        </div>
-          <span id="tracktime4"> </span>
+                <i class="material-icons" id="rewind">repeat</i>
+                <button id="play-icon" onclick="play(audio)">
+                  <i class="material-icons" id="icon_text">''</i>
+                </button>
+                <i class="material-icons" id="shuffle">shuffle</i>
+              </div>
+            </section>
+            <section class="track">
+              <div class="hideImage1"></div>
+              <div class="song-play1">
+              <div>
+                  <i class="material-icons">add_circle</i>
+                </div>
+                <div>
+                  <p></p>
+                </div>
+                <div>
+                  <i class="material-icons">favorite</i>
+                </div>
+              </div>
+              <span id="tracktime1"> </span>
               <div class="play-row">
-         <i class="material-icons" id="rewind">repeat</i> 
-         <button id="play-icon-forth" onclick="playFourth()">
-            <i class="material-icons" id="icon_text_forth">''</i>
-          </button>
-             <i class="material-icons" id="shuffle">shuffle</i>
-             </div>
-        </section>
-      </section>
+                <i class="material-icons" id="rewind">repeat</i>
+                <button id="play-icon-first" onclick="playFirst(audio1)">
+                  <i class="material-icons" id="icon_text_first">''</i>
+
+                  <!-- <i class="material-icons" id="material-icons">pause_circle</i> -->
+                </button>
+                <i class="material-icons" id="shuffle">shuffle</i>
+              </div>
+            </section>
+            <section class="track">
+              <div class="hideImage2"></div>
+              <div class="song-play2">
+              <div>
+                  <i class="material-icons">add_circle</i>
+                </div>
+                <div>
+                  <p></p>
+                </div>
+                <div>
+                  <i class="material-icons">favorite</i>
+                </div>
+              </div>
+              <span id="tracktime2"> </span>
+              <div class="play-row">
+                <i class="material-icons" id="rewind">repeat</i>
+                <button id="play-icon-second" onclick="playSecond()">
+                  <i class="material-icons" id="icon_text_second">''</i>
+                </button>
+                <i class="material-icons" id="shuffle">shuffle</i>
+              </div>
+            </section>
+            <section class="track">
+              <div class="hideImage3"></div>
+              <div class="song-play3">
+               <div>
+                  <i class="material-icons">add_circle</i>
+                </div>
+                <div>
+                  <p></p>
+                </div>
+                <div>
+                  <i class="material-icons">favorite</i>
+                </div>
+              </div>
+              <span id="tracktime3"> </span>
+              <div class="play-row">
+                <i class="material-icons" id="rewind">repeat</i>
+                <button id="play-icon-third" onclick="playThird()">
+                  <i class="material-icons" id="icon_text_third">''</i>
+                </button>
+                <i class="material-icons" id="shuffle">shuffle</i>
+              </div>
+            </section>
+            <section class="track">
+              <div class="hideImage4"></div>
+              <div class="song-play4">
+               <div>
+                  <i class="material-icons">add_circle</i>
+                </div>
+                <div>
+                  <p></p>
+                </div>
+                <div>
+                  <i class="material-icons">favorite</i>
+                </div>
+              </div>
+              <span id="tracktime4"> </span>
+              <div class="play-row">
+                <i class="material-icons" id="rewind">repeat</i>
+                <button id="play-icon-forth" onclick="playFourth()">
+                  <i class="material-icons" id="icon_text_forth">''</i>
+                </button>
+                <i class="material-icons" id="shuffle">shuffle</i>
+              </div>
+            </section>
+          </section>
+        </div>
+      </div>
     </div>
-  </div>
-  </div>
   </body>
 </html>

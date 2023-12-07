@@ -2,14 +2,33 @@ nav {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  position: fixed;
   height: 60px;
-  background-color: #192636aa;
-  color: #fff;
+  background-color: #2d303ee4;
+  color: #ffffffc4;
   align-items: center;
   margin-bottom: 0;
+  margin-inline: 0;
   top: 0;
   font-family: roboto;
+}
+nav > div {
+  margin-inline: 10px;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-inline: 0;
+  padding: 0;
+}
+.nav-button .material-icons {
+  font-size: 30px;
+  color: #ffffffc4;
+  display: flex;
+  align-items: center;
+}
+.more .material-icons {
+  font-size: 25px;
+  color: #ffffffc4;
+  display: flex;
+  align-items: center;
 }
 
 body {
@@ -22,20 +41,14 @@ section > div {
 section > div > p:nth-child(2) {
   font-weight: 100;
 }
-nav > div {
-  margin-inline: 100px;
-  margin-bottom: 0;
-  margin-top: 0;
-}
 .image {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border: 0.5px solid #fff;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .playL {
-  background-color: #192636d5;
-
+  background-color: #2d303e;
   width: 100%;
 }
 .song-play4 {
@@ -51,12 +64,11 @@ nav > div {
 .playlist {
   background-image: url(sound_img.jpg);
   background-repeat: no-repeat;
-  top: 60px;
   background-size: cover;
   background-position: center;
   z-index: -1;
   width: 100%;
-  background-color: #192636aa;
+  background-color: #2d303e;
 }
 
 .nav-button {
@@ -87,10 +99,14 @@ button {
 .song-play4 {
   color: #fff;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: row;
+  gap: 60px;
   font-size: 16px;
   align-items: center;
+}
+.song-play1,
+.song-play3 {
+  gap: 15px;
 }
 .song-play p {
   font-family: Roboto;
@@ -104,8 +120,7 @@ button {
   flex-direction: row;
   justify-content: center;
   margin: 0;
-  margin-top: 60px;
-  gap: 10px;
+  gap: 8px;
   top: 100%;
 }
 .audio-player {
@@ -119,14 +134,13 @@ button {
   display: flex;
   flex-direction: column;
   gap: 30px;
-  padding: 16px;
+  padding: 30px 0px;
   margin-top: 0;
   margin-inline: 0;
-  margin-top: 60px;
   justify-content: center;
   width: 100%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  background-color: rgba(24, 37, 52, 0.575);
+  background-color: #2d303eb9;
 }
 .play-row > button > .material-icons {
   font-size: 60px;
@@ -141,30 +155,68 @@ button {
 audio {
   display: none;
 }
-.visible-s-track:nth-child(1) {
-  margin-top: 60px;
-}
 .track > .material-icons {
   font-size: 30px;
 }
+
+.song-play div:nth-child(1) {
+  color: #ffffffd7;
+}
+.song-play div:nth-child(3) {
+  color: #ffffff86;
+}
+
+.song-play1 div:nth-child(1) {
+  color: #ffffffd7;
+}
+.song-play1 div:nth-child(3) {
+  color: #ffffff86;
+}
+
+.song-play2 div:nth-child(1) {
+  color: #ffffffd7;
+}
+.song-play2 div:nth-child(3) {
+  color: #ffffff86;
+}
+
+.song-play3 div:nth-child(1) {
+  color: #ffffffd7;
+}
+.song-play3 div:nth-child(3) {
+  color: #ffffff86;
+}
+
+.song-play4 > div:nth-child(1) {
+  color: #ffffffd7;
+}
+.song-play4 > div:nth-child(3) {
+  color: #ffffff86;
+}
 .visible-s-track > button > .material-icons {
-  font-size: 18px;
+  font-size: 20px;
+  color: #ffffff55;
 }
 .visible-s-track {
   display: flex;
   justify-content: space-between;
+  padding: 15px 24px;
   max-height: 900px;
-  background-color: rgba(24, 37, 52, 0.575);
-  padding: 10px;
+  background-color: #2d303e;
   color: #fff;
   font-family: Roboto;
   align-items: center;
   border-color: transparent;
-  border-bottom: 1px solid #192636aa;
+  border-bottom: 1px solid #27303baa;
   max-width: 700px;
 }
+.highlight-s-track {
+  background-color: #2d303eb9;
+}
+.highlightAudioIcon {
+  color: #fff !important;
+}
 .visible-s-track > section {
-  padding: 0;
   display: flex;
   overflow-x: hidden;
   white-space: nowrap;
@@ -177,54 +229,55 @@ audio {
 }
 .visible-s-track > section > div > p {
   margin: 0;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis !important;
 }
 .song_image {
   background-image: url(sound_img.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
 }
 .song_image1 {
   background-image: url(song_img1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
 }
 .song_image2 {
   background-image: url(song_img2.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
 }
 .song_image3 {
   background-image: url(song_img3.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
 }
 .song_image4 {
   background-image: url(song_img4.jpg);
+  display: block;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
 }
 span {
   color: #fff;
   justify-self: center;
 }
 h4 {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: normal;
+  white-space: nowrap;
 }
 @media only screen and (max-width: 768px) {
   nav > div {
-    margin-inline: 0;
     padding-inline: 16px;
   }
   nav {
