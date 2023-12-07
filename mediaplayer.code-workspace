@@ -1,0 +1,14 @@
+{
+  "folders": [
+	{
+		"path": ".."
+	},
+	{
+		"path": "../../../../../Downloads/Uppgift CSS Avancerad - Mediaspelaren Assets"
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "mediaplayer",
+    "liveServer.settings.port": 5503
+  }
+}
