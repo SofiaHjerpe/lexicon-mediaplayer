@@ -4,27 +4,21 @@ body {
 
 .playlist {
   background-image: url(sound_img.jpg);
-  background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  top: 100%;
   margin-top: 0;
-  width: 100%;
   background-color: #2d303e;
 }
 #audio-player-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: 0;
   gap: 8px;
-  top: 100%;
   margin-top: 60px;
 }
 audio {
   display: none;
 }
-/* header */
 header {
   display: flex;
   justify-content: space-between;
@@ -33,11 +27,8 @@ header {
   background-color: #2d303ee4;
   color: #ffffffee;
   align-items: center;
-  margin-bottom: 0;
-  margin-inline: 0;
   top: 0;
   position: fixed;
-  font-family: roboto;
 }
 
 .nav-button {
@@ -258,7 +249,7 @@ span {
 h4 {
   font-size: 20px;
   font-weight: normal;
-  white-space: nowrap;
+  font-family: roboto;
 }
 @media only screen and (max-width: 768px) {
   nav > div {
@@ -300,7 +291,7 @@ h4 {
 }
 .time-line-container {
   padding: 0;
-  margin-top: -32px
+  margin-top: -32px;
 }
 
 .time-line-container .inner-time-line {
