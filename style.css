@@ -3,7 +3,7 @@ body {
 }
 
 .playlist {
-  background-image: url(sound_img.jpg);
+  background-image: url(dancingFlameImg.jpg);
   background-size: cover;
   background-position: center;
   margin-top: 0;
@@ -196,7 +196,7 @@ section > div > p:nth-child(2) {
   text-overflow: ellipsis !important;
 }
 .song_image {
-  background-image: url(sound_img.jpg);
+  background-image: url(dancingFlameImg.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   width: 350px;

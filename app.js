@@ -1,5 +1,5 @@
 let isPlaying = false;
-let audio = document.getElementById("rush");
+let audio = document.getElementById("dancing_flame");
 let soundImg = document.querySelector(".hideImage");
 
 function play(audio, playMusic) {
@@ -8,7 +8,7 @@ function play(audio, playMusic) {
   let btnv = document.getElementById("icon_text_visible");
 
   let backgroundIm = document.querySelector("playlist");
-  audio = document.getElementById("rush");
+  audio = document.getElementById("dancing_flame");
   soundImg = document.querySelector(".hideImage");
 
   audio.play();
