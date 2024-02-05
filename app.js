@@ -9,8 +9,10 @@ let between = document.getElementById("between");
 let played = document.getElementById("played");
 let round = document.getElementById("round");
 let trueM = document.getElementById("true");
-const audioPlayer = document.querySelector(".audio-player");
+let soundImg = document.querySelector(".hideImage");
 
+const audioPlayer = document.querySelector(".audio-player");
+const songTitles = document.querySelectorAll(".song-title");
 
 const trackListArray = [
   {
@@ -74,22 +76,29 @@ const trackListArray = [
     index: 9,
   },
 ];
-const buttons = document.querySelectorAll("#play-icon-visible-tr");
-
-  buttons.forEach((btn) => {
-    btn.addEventListener("click", play(e))
-  });
+const arrayOfSongs = [
+  dancing_flame,
+  baila,
+  cristo,
+  coffee,
+  evidence,
+  givemetime,
+  between,
+  played,
+  round,
+  trueM,
+];
 
 function createTrackListAsHtml(track) {
   return ` <section class="visible-s-track">
               <section>
                 <img class="image" src="${track.imgSrc}" alt="img" />
                 <div>
-                  <p>${track.title}</p>
+                  <p class="song-title">${track.title}</p>
                   <p>${track.artist}</p>
                 </div>
               </section>
-              <button id="play-icon-visible-tr">
+              <button class="icon-button" id="play-icon-visible-tr">
                 <i class="material-icons" id="icon_text_visible-f">
                   play_circle
                 </i>
@@ -105,62 +114,42 @@ const defaultTrackAsHtml = trackListArray
 
 console.log(defaultTrackAsHtml);
 audioPlayer.insertAdjacentHTML("beforeend", defaultTrackAsHtml);
-
-let soundImg = document.querySelector(".hideImage");
-
-function play(e) {
+const playButtons = document.querySelectorAll(".icon-button");
+playButtons.forEach((playButton) => {
+  playButton.addEventListener("click", (e) => playMusic(e, songTitles, arrayOfSongs));
+});
+function playMusic(e, songTitles, arrayOfSongs) {
   let btn = document.getElementById("icon_text");
-  const arrayOfSongs = [
-  dancing_flame,
-  baila,
-  cristo,
-  coffee,
-  evidence,
-  givemetime,
-  between,
-  played,
-  round,
-  trueM,
-];
+
+  arrayOfSongs.map((song) => {
+    isPlaying ? song.pause() : song.play();
+  });
 
   let btnv = document.getElementById("icon_text_visible");
-
-  let backgroundIm = document.querySelector("playlist");
-if(e.target.closest(section).includes("dancing flame") ){
-  arrayOfSongs[0].play();
-}
-if (e.target.closest(section).includes("baila")) {
-  arrayOfSongs[1].play();
-}
-if (e.target.closest(section).includes("cristo")) {
-  arrayOfSongs[2].play();
-}
-if (e.target.closest(section).includes("coffee")) {
-  arrayOfSongs[3].play();
 }
 
+// om man klickar på en låt ska knappen annan färg
 
-  // i
-  // soundImg = document.querySelector(".hideImage");
+// i
+// soundImg = document.querySelector(".hideImage");
 
-  // audio.play();
+// audio.play();
 
-  // isPlaying ? audio.pause() : audio.play();
+// isPlaying ? audio.pause() : audio.play();
 
-  // audio.onplaying = function () {
-  //   isPlaying = true;
-  //   playMusic = true;
-  //   btnv.innerHTML = "pause_circle";
+// audio.onplaying = function () {
+//   isPlaying = true;
+//   playMusic = true;
+//   btnv.innerHTML = "pause_circle";
 
-  //   btn.innerHTML = "pause_circle";
-  //   soundImg.classList.remove("hideImage");
-  //   soundImg.classList.add("song_image");
-  // };
-  // audio.onpause = function () {
-  //   isPlaying = false;
-  //   btnv.innerHTML = "play_circle";
-  //   btn.innerHTML = "play_circle";
-  //   soundImg.classList.remove("song_image");
-  //   soundImg.classList.add("hideImage");
-  // };
-}
+//   btn.innerHTML = "pause_circle";
+//   soundImg.classList.remove("hideImage");
+//   soundImg.classList.add("song_image");
+// };
+// audio.onpause = function () {
+//   isPlaying = false;
+//   btnv.innerHTML = "play_circle";
+//   btn.innerHTML = "play_circle";
+//   soundImg.classList.remove("song_image");
+//   soundImg.classList.add("hideImage");
+// };
