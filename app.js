@@ -89,7 +89,7 @@ const arrayOfSongs = [
   trueM,
 ];
 
-function createTrackListAsHtml(track) {
+function createTrackListAsHtml(track, index) {
   return ` <section class="visible-s-track">
               <section>
                 <img class="image" src="${track.imgSrc}" alt="img" />
@@ -98,8 +98,8 @@ function createTrackListAsHtml(track) {
                   <p>${track.artist}</p>
                 </div>
               </section>
-              <button class="icon-button" id="play-icon-visible-tr">
-                <i class="material-icons" id="icon_text_visible-f">
+              <button class="icon-button" >
+                <i class="material-icons" id="${index}" >
                   play_circle
                 </i>
               </button>
@@ -107,8 +107,8 @@ function createTrackListAsHtml(track) {
 }
 
 const defaultTrackAsHtml = trackListArray
-  .map((track) => {
-    return createTrackListAsHtml(track);
+  .map((track, index) => {
+    return createTrackListAsHtml(track, index);
   })
   .join("");
 
@@ -119,13 +119,13 @@ playButtons.forEach((playButton) => {
   playButton.addEventListener("click", (e) => playMusic(e, songTitles, arrayOfSongs));
 });
 function playMusic(e, songTitles, arrayOfSongs) {
+  e.preventDefault();
   let btn = document.getElementById("icon_text");
 
-  arrayOfSongs.map((song) => {
-    isPlaying ? song.pause() : song.play();
-  });
-
-  let btnv = document.getElementById("icon_text_visible");
+  let index = e.target.id;
+  let songIndex = parseInt(index);
+  console.log(e.target.id);
+  arrayOfSongs[songIndex].play();
 }
 
 // om man klickar på en låt ska knappen annan färg
