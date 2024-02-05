@@ -79,8 +79,8 @@ const trackListArray = [
 const arrayOfSongs = [
   dancing_flame,
   baila,
-  cristo,
   coffee,
+  cristo,
   evidence,
   givemetime,
   between,
