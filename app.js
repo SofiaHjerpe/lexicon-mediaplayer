@@ -11,18 +11,7 @@ let round = document.getElementById("round");
 let trueM = document.getElementById("true");
 const audioPlayer = document.querySelector(".audio-player");
 
-const arrayOfSongs = [
-  dancing_flame,
-  baila,
-  cristo,
-  coffee,
-  evidence,
-  givemetime,
-  between,
-  played,
-  round,
-  trueM,
-];
+
 const trackListArray = [
   {
     imgSrc: "dancingFlameImg.jpg",
@@ -85,60 +74,93 @@ const trackListArray = [
     index: 9,
   },
 ];
+const buttons = document.querySelectorAll("#play-icon-visible-tr");
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", play(e))
+  });
+
 function createTrackListAsHtml(track) {
-  return `<section>
+  return ` <section class="visible-s-track">
+              <section>
                 <img class="image" src="${track.imgSrc}" alt="img" />
                 <div>
                   <p>${track.title}</p>
                   <p>${track.artist}</p>
                 </div>
               </section>
-              <button id="play-icon-visible">
-                <i class="material-icons" id="icon_text_visible">
+              <button id="play-icon-visible-tr">
+                <i class="material-icons" id="icon_text_visible-f">
                   play_circle
                 </i>
-              </button>`;
+              </button>
+            </section> `;
 }
-const defaultTrackAsHtml = trackListArray.map((track) => {
-  return createTrackListAsHtml(track);
-});
+
+const defaultTrackAsHtml = trackListArray
+  .map((track) => {
+    return createTrackListAsHtml(track);
+  })
+  .join("");
 
 console.log(defaultTrackAsHtml);
-const htmlString = defaultTrackAsHtml.join("");
-audioPlayer.innerHTML = htmlString;
+audioPlayer.insertAdjacentHTML("beforeend", defaultTrackAsHtml);
 
 let soundImg = document.querySelector(".hideImage");
 
-// function play(audio, playMusic) {
-//   let btn = document.getElementById("icon_text");
+function play(e) {
+  let btn = document.getElementById("icon_text");
+  const arrayOfSongs = [
+  dancing_flame,
+  baila,
+  cristo,
+  coffee,
+  evidence,
+  givemetime,
+  between,
+  played,
+  round,
+  trueM,
+];
 
-//   let btnv = document.getElementById("icon_text_visible");
+  let btnv = document.getElementById("icon_text_visible");
 
-//   let backgroundIm = document.querySelector("playlist");
-//   audio = document.getElementById("dancing_flame");
-//   soundImg = document.querySelector(".hideImage");
+  let backgroundIm = document.querySelector("playlist");
+if(e.target.closest(section).includes("dancing flame") ){
+  arrayOfSongs[0].play();
+}
+if (e.target.closest(section).includes("baila")) {
+  arrayOfSongs[1].play();
+}
+if (e.target.closest(section).includes("cristo")) {
+  arrayOfSongs[2].play();
+}
+if (e.target.closest(section).includes("coffee")) {
+  arrayOfSongs[3].play();
+}
 
-//   audio.play();
 
-//   isPlaying ? audio.pause() : audio.play();
+  // i
+  // soundImg = document.querySelector(".hideImage");
 
-//   audio.onplaying = function () {
-//     isPlaying = true;
-//     playMusic = true;
-//     btnv.innerHTML = "pause_circle";
+  // audio.play();
 
-//     btn.innerHTML =
-//       "pause_circle";
-//     soundImg.classList.remove("hideImage");
-//     soundImg.classList.add("song_image");
+  // isPlaying ? audio.pause() : audio.play();
 
-//   };
-//   audio.onpause = function () {
-//     isPlaying = false;
-//     btnv.innerHTML = "play_circle";
-//     btn.innerHTML =
-//       "play_circle";
-//     soundImg.classList.remove("song_image");
-//     soundImg.classList.add("hideImage");
-//   };
-// }
+  // audio.onplaying = function () {
+  //   isPlaying = true;
+  //   playMusic = true;
+  //   btnv.innerHTML = "pause_circle";
+
+  //   btn.innerHTML = "pause_circle";
+  //   soundImg.classList.remove("hideImage");
+  //   soundImg.classList.add("song_image");
+  // };
+  // audio.onpause = function () {
+  //   isPlaying = false;
+  //   btnv.innerHTML = "play_circle";
+  //   btn.innerHTML = "play_circle";
+  //   soundImg.classList.remove("song_image");
+  //   soundImg.classList.add("hideImage");
+  // };
+}
