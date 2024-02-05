@@ -19,61 +19,51 @@ const trackListArray = [
     imgSrc: "dancingFlameImg.jpg",
     title: "Dancing flame",
     artist: "christo4us",
-    index: 0,
   },
   {
     imgSrc: "bailaImg.jpg",
     title: "Baila",
     artist: "Alfonso Lugo",
-    index: 1,
   },
   {
     imgSrc: "coffeeImg.jpg",
     title: "Evening coffee",
     artist: "Oleg O Kachanko",
-    index: 2,
   },
   {
     imgSrc: "CristoImg.jpg",
     title: "Es el cristo",
     artist: "Son by Four",
-    index: 3,
   },
   {
     imgSrc: "evidenceImg.jpg",
     title: "Evidence song",
     artist: "The good Lawdz",
-    index: 4,
   },
   {
     imgSrc: "givemetimeImg.jpg",
     title: "Give me time",
     artist: "The A.J Gatz project",
-    index: 5,
   },
   {
     imgSrc: "InBetweenImg.jpg",
     title: "In between",
     artist: "Kinematic",
-    index: 6,
   },
   {
     imgSrc: "PlayedImg.jpg",
     title: "Played",
     artist: "Niki J Crawford",
-    index: 7,
   },
   {
     imgSrc: "PlayedImg.jpg",
     title: "Round and round",
     artist: "Niki J Crawford",
-    index: 8,
   },
   {
     imgSrc: "TrueImg.jpg",
     title: "True Moment",
     artist: "The ARTISANS",
-    index: 9,
   },
 ];
 const arrayOfSongs = [
