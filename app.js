@@ -104,7 +104,9 @@ const defaultTrackAsHtml = trackListArray
 
 console.log(defaultTrackAsHtml);
 audioPlayer.insertAdjacentHTML("beforeend", defaultTrackAsHtml);
-const playButtons = document.querySelectorAll(".icon-button");
+const playButtons = document.querySelectorAll(".icon-button .material-icons");
+const tracks = document.querySelectorAll(".visible-s-track");
+
 playButtons.forEach((playButton) => {
   playButton.addEventListener("click", (e) => playMusic(e, songTitles, arrayOfSongs));
 });
@@ -114,11 +116,57 @@ function playMusic(e, songTitles, arrayOfSongs) {
 
   let index = e.target.id;
   let songIndex = parseInt(index);
+
   console.log(e.target.id);
-  arrayOfSongs[songIndex].play();
+  let song = arrayOfSongs[songIndex];
+  song.play();
+  isPlaying ? song.pause() : song.play();
+
+  song.onplay = function () {
+    isPlaying = true;
+    playButtons[songIndex].innerText = "pause_circle";
+    //   btnv.innerHTML = "play_circle";
+    soundImg.classList.remove("song_image");
+    soundImg.classList.add("hideImage");
+    playButtons[songIndex].classList.add("highlightAudioIcon");
+    tracks[songIndex].classList.add("highlight-s-track");
+  };
+
+  song.onpause = function () {
+    isPlaying = false;
+    playButtons[songIndex].innerText = "play_circle";
+    //   btnv.innerHTML = "play_circle";
+    soundImg.classList.remove("song_image");
+    soundImg.classList.add("hideImage");
+    playButtons[songIndex].classList.remove("highlightAudioIcon");
+    tracks[songIndex].classList.remove("highlight-s-track");
+  };
+
+  document.addEventListener(
+    "play",
+    function (e) {
+      for (var i = 0; i < arrayOfSongs.length; i++) {
+        if (arrayOfSongs[i] != e.target) {
+          arrayOfSongs[i].pause();
+        } else if(arrayOfSongs[i] === e.target){
+          arrayOfSongs[i].play();
+        }
+      }
+    },
+    true
+  );
 }
 
-// om man klickar på en låt ska knappen annan färg
+//add timeupdate for song
+//
+
+// audio.addEventListener("timeupdate", function () {
+//   const percent = (audio.currentTime / audio.duration) * 100;
+//   progressBar.style.width = percent + "%";
+// });
+// //   btn.innerHTML = "pause_circle";
+//   soundImg.classList.remove("hideImage");
+//   soundImg.classList.add("song_image");
 
 // i
 // soundImg = document.querySelector(".hideImage");
@@ -127,15 +175,7 @@ function playMusic(e, songTitles, arrayOfSongs) {
 
 // isPlaying ? audio.pause() : audio.play();
 
-// audio.onplaying = function () {
-//   isPlaying = true;
-//   playMusic = true;
-//   btnv.innerHTML = "pause_circle";
-
-//   btn.innerHTML = "pause_circle";
-//   soundImg.classList.remove("hideImage");
-//   soundImg.classList.add("song_image");
-// };
+//
 // audio.onpause = function () {
 //   isPlaying = false;
 //   btnv.innerHTML = "play_circle";

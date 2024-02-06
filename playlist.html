@@ -26,9 +26,10 @@
             </div>
           </header>
           </div>
+       
         <audio
           controls
-          onplay=" document.querySelector('.visible-s-track button .material-icons').classList.add('highlightAudioIcon') + document.querySelector('.visible-s-track').classList.add('highlight-s-track')"
+          onplay=" document.querySelector('.visible-s-track:nth-of-type(1) .icon-button .material-icons').classList.add('highlightAudioIcon') + document.querySelector('.visible-s-track:nth-of-type(1)').classList.add('highlight-s-track')"
           id="dancing_flame"
           ontimeupdate="document.getElementById('tracktime').innerHTML =  ' 0:' + Math.floor(this.currentTime)  + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +  Math.floor(this.duration / 60) + ':00'"
         >
@@ -38,7 +39,7 @@
         </audio>
          <audio
           controls
-          onplay=" document.querySelector('.visible-s-track button .material-icons').classList.add('highlightAudioIcon') + document.querySelector('.visible-s-track').classList.add('highlight-s-track')"
+          onplay=" document.querySelector('.visible-s-track:nth-of-type(2)  button .material-icons').classList.add('highlightAudioIcon') + document.querySelector('.visible-s-track:nth-of-type(2)').classList.add('highlight-s-track')"
           id="baila"
           ontimeupdate="document.getElementById('tracktime').innerHTML =  ' 0:' + Math.floor(this.currentTime)  + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +  Math.floor(this.duration / 60) + ':00'"
         >
@@ -46,9 +47,19 @@
           <source src="music/Baila_-_Alfonso_Lugo.mp3" type="audio/mpeg" />
           Your browser does not support the audio element.
         </audio>
+           <audio
+          controls
+          onplay=" document.querySelector('.visible-s-track:nth-of-type(3)  button .material-icons').classList.add('highlightAudioIcon') + document.querySelector('.visible-s-track:nth-of-type(3)').classList.add('highlight-s-track')"
+          id="coffee"
+          ontimeupdate="document.getElementById('tracktime').innerHTML =  ' 0:' + Math.floor(this.currentTime)  + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +  Math.floor(this.duration / 60) + ':00'"
+        >
+        
+          <source src="music/Evening_coffee_-_Oleg_O._Kachanko.mp3" type="audio/mpeg" />
+          Your browser does not support the audio element.
+        </audio>
           <audio
           controls
-          onplay=" document.querySelector('.visible-s-track button .material-icons').classList.add('highlightAudioIcon') + document.querySelector('.visible-s-track').classList.add('highlight-s-track')"
+          onplay=" document.querySelector('.visible-s-track:nth-of-type(4)  button .material-icons').classList.add('highlightAudioIcon') + document.querySelector('.visible-s-track:nth-of-type(4)').classList.add('highlight-s-track')"
           id="cristo"
           ontimeupdate="document.getElementById('tracktime').innerHTML =  ' 0:' + Math.floor(this.currentTime)  + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +  Math.floor(this.duration / 60) + ':00'"
         >
@@ -58,17 +69,6 @@
         </audio>
            <audio
           controls
-          onplay=" document.querySelector('.visible-s-track button .material-icons').classList.add('highlightAudioIcon') + document.querySelector('.visible-s-track').classList.add('highlight-s-track')"
-          id="coffee"
-          ontimeupdate="document.getElementById('tracktime').innerHTML =  ' 0:' + Math.floor(this.currentTime)  + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +  Math.floor(this.duration / 60) + ':00'"
-        >
-        
-          <source src="music/Evening_coffee_-_Oleg_O._Kachanko.mp3" type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-           <audio
-          controls
-          onplay=" document.querySelector('.visible-s-track button .material-icons').classList.add('highlightAudioIcon') + document.querySelector('.visible-s-track').classList.add('highlight-s-track')"
           id="evidence"
           ontimeupdate="document.getElementById('tracktime').innerHTML =  ' 0:' + Math.floor(this.currentTime)  + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +  Math.floor(this.duration / 60) + ':00'"
         >
@@ -78,7 +78,6 @@
         </audio>
         <audio
           controls
-          onplay=" document.querySelector('.visible-s-track button .material-icons').classList.add('highlightAudioIcon') + document.querySelector('.visible-s-track').classList.add('highlight-s-track')"
           id="givemetime"
           ontimeupdate="document.getElementById('tracktime').innerHTML =  ' 0:' + Math.floor(this.currentTime)  + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +  Math.floor(this.duration / 60) + ':00'"
         >
@@ -88,7 +87,6 @@
         </audio>
            <audio
           controls
-          onplay=" document.querySelector('.visible-s-track button .material-icons').classList.add('highlightAudioIcon') + document.querySelector('.visible-s-track').classList.add('highlight-s-track')"
           id="between"
           ontimeupdate="document.getElementById('tracktime').innerHTML =  ' 0:' + Math.floor(this.currentTime)  + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +  Math.floor(this.duration / 60) + ':00'"
         >
@@ -98,7 +96,6 @@
         </audio>
            <audio
           controls
-          onplay=" document.querySelector('.visible-s-track button .material-icons').classList.add('highlightAudioIcon') + document.querySelector('.visible-s-track').classList.add('highlight-s-track')"
           id="played"
           ontimeupdate="document.getElementById('tracktime').innerHTML =  ' 0:' + Math.floor(this.currentTime)  + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +  Math.floor(this.duration / 60) + ':00'"
         >
@@ -108,7 +105,6 @@
         </audio>
            <audio
           controls
-          onplay=" document.querySelector('.visible-s-track button .material-icons').classList.add('highlightAudioIcon') + document.querySelector('.visible-s-track').classList.add('highlight-s-track')"
           id="round"
           ontimeupdate="document.getElementById('tracktime').innerHTML =  ' 0:' + Math.floor(this.currentTime)  + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +  Math.floor(this.duration / 60) + ':00'"
         >
@@ -118,7 +114,6 @@
         </audio>
            <audio
           controls
-          onplay=" document.querySelector('.visible-s-track button .material-icons').classList.add('highlightAudioIcon') + document.querySelector('.visible-s-track').classList.add('highlight-s-track')"
           id="true"
           ontimeupdate="document.getElementById('tracktime').innerHTML =  ' 0:' + Math.floor(this.currentTime)  + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +  Math.floor(this.duration / 60) + ':00'"
         >
