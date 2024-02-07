@@ -1,16 +1,7 @@
 let isPlaying = false;
 let dancing_flame = document.getElementById("dancing_flame");
-let baila = document.getElementById("baila");
-let cristo = document.getElementById("cristo");
-let coffee = document.getElementById("coffee");
-let evidence = document.getElementById("evidence");
-let givemetime = document.getElementById("givemetime");
-let between = document.getElementById("between");
-let played = document.getElementById("played");
-let round = document.getElementById("round");
-let trueM = document.getElementById("true");
 let soundImg = document.querySelector(".hideImage");
-
+const currentSong = document.querySelector("audio");
 const audioPlayer = document.querySelector(".audio-player");
 const songTitles = document.querySelectorAll(".song-title");
 const playingSong = document.querySelector(".playing");
@@ -68,16 +59,16 @@ const trackListArray = [
   },
 ];
 const arrayOfSongs = [
-  dancing_flame,
-  baila,
-  coffee,
-  cristo,
-  evidence,
-  givemetime,
-  between,
-  played,
-  round,
-  trueM,
+  "music/dancing_flame.mp3",
+  "music/Baila_-_Alfonso_Lugo.mp3",
+  "music/Evening_coffee_-_Oleg_O._Kachanko.mp3",
+  "music/Es_El_Cristo(version_salsa)_-_Son_By_Four_(2).mp3",
+  "music/Evidence_Song_-_The_Good_Lawdz.mp3",
+  "music/Give_Me_Time_-_The_A.J._Gatz_Project.mp3",
+  "music/In_Between_-_Kinematic.mp3",
+  "music/Played_-_Niki_J_Crawford.mp3",
+  "music/Round_and_Round_-_Niki_J_Crawford.mp3",
+  "music/True_Moment_-_The_ARTISANS.mp3",
 ];
 
 function createTrackListAsHtml(track, index) {
@@ -125,7 +116,7 @@ function createSingleTrackAsHtml(singleTrack, index) {
                 <i class="material-icons"  id="rewind">repeat</i>
                 </div>
                 <div class="switch-controls">
-                 <button class="change-song-btn"> 
+                 <button class="change-song-btn">
                      <i class="material-icons previous" id="${index}">fast_rewind</i>
                  </button>
                  <button id="play-icon">
@@ -165,100 +156,116 @@ singleTracks.forEach((singleTrack) => {
   singleTrack.style.display = "none";
 });
 playButtons.forEach((playButton) => {
-  playButton.addEventListener("click", (e) => playMusic(e, singleTracks, arrayOfSongs));
+  playButton.addEventListener("click", (e) => playMusic(e, arrayOfSongs));
 });
-function changeToPreviousSong(e) {
+function changeToPreviousSong(e, currentSong, songIndex, singleTracks, playButtons, tracks) {
   console.log(e.target.id);
   let index = e.target.id - 1;
   let preIndex = parseInt(index);
-
-  for (var i = 0; i < arrayOfSongs.length; i++) {
-    if (i != preIndex) {
-      arrayOfSongs[i].pause();
-      playButtons[i].innerText = "play_circle";
-      playButtons[i].classList.remove("highlightAudioIcon");
-      tracks[i].classList.remove("highlight-s-track");
-      isPlaying = false;
-    } else if (i === preIndex) {
-      arrayOfSongs[i].play();
-      playButtons[i].innerText = "pause_circle";
-      playButtons[i].classList.add("highlightAudioIcon");
-      tracks[i].classList.add("highlight-s-track");
-      isPlaying = true;
-    }
+  let newSongIndex = songIndex - 1;
+  if (newSongIndex != preIndex) {
+    currentSong.setAttribute("src", arrayOfSongs[newSongIndex]);
+    currentSong.pause();
+    setPausedTrackStyling(songIndex, singleTracks, playButtons, tracks);
+  } else if (newSongIndex === preIndex) {
+    currentSong.setAttribute("src", arrayOfSongs[newSongIndex]);
+    currentSong.play();
+    setTrackStyling(songIndex, singleTracks, playButtons, tracks);
   }
 }
 
-function changeToNextSong(e) {
-  console.log(e.target.id);
-  let index = e.target.id;
-  let nextIndex = parseInt(index + 1);
-
-  console.log(nextIndex);
-
-  for (var i = 0; i < arrayOfSongs.length; i++) {
-    if (i != nextIndex) {
-      arrayOfSongs[i].pause();
-      playButtons[i].innerText = "play_circle";
-      playButtons[i].classList.remove("highlightAudioIcon");
-      tracks[i].classList.remove("highlight-s-track");
-      isPlaying = false;
-    } else if (i === nextIndex) {
-      arrayOfSongs[i].play();
-      playButtons[i].innerText = "pause_circle";
-      playButtons[i].classList.add("highlightAudioIcon");
-      tracks[i].classList.add("highlight-s-track");
-      isPlaying = true;
-    }
+function onSongChange(e, currentSong, singleTracks, playButtons, tracks, songIndex) {
+  if (currentSong != e.target) {
+    currentSong.pause();
+    setPausedTrackStyling(songIndex, singleTracks, playButtons, tracks);
+  } else if (currentSong === e.target) {
+    currentSong.play();
+    setTrackStyling(songIndex, singleTracks, playButtons, tracks);
+  } else {
+    currentSong.pause();
   }
 }
-function styleWhenSongIsPlaying(e) {
-  for (var i = 0; i < arrayOfSongs.length; i++) {
-    if (arrayOfSongs[i] != e.target) {
-      arrayOfSongs[i].pause();
-      isPlaying = false;
-      singleTracks[i].style.display = "none";
-    } else if (arrayOfSongs[i] === e.target) {
-      arrayOfSongs[i].play();
-      isPlaying = true;
-      singleTracks[i].style.display = "block";
-    }
-  }
+// function styleWhenSongIsPaused(e, song) {
+// console.log("music is paused")
+// }
+function setTrackStyling(songIndex, singleTracks, playButtons, tracks) {
+  singleTracks.forEach((singleTrack) => {
+    singleTrack.style.display = "none";
+  });
+  singleTracks[songIndex].style.display = "block";
+  playButtons.forEach((playButton) => {
+    playButton.innerText = "play_circle";
+    playButton.classList.remove("highlightAudioIcon");
+  });
+  tracks.forEach((track) => {
+    track.classList.remove("highlight-s-track");
+  });
 }
 
-function playMusic(e, singleTracks, arrayOfSongs) {
-  e.preventDefault();
+function setPausedTrackStyling(songIndex, singleTracks, playButtons, tracks) {
+  singleTracks.forEach((singleTrack) => {
+    singleTrack.style.display = "none";
+  });
+  playButtons.forEach((playButton) => {
+    playButton.innerText = "play_circle";
+    playButton.classList.remove("highlightAudioIcon");
+  });
+
+  tracks.forEach((track) => {
+    track.classList.remove("highlight-s-track");
+  });
+}
+
+function playMusic(e, arrayOfSongs) {
   let btn = document.getElementById("icon_text");
 
   let index = e.target.id;
   let songIndex = parseInt(index);
 
   console.log(e.target.id);
-  let song = arrayOfSongs[songIndex];
-  song.play();
-  isPlaying ? song.pause() : song.play();
 
-  song.onplay = function () {
-    isPlaying = true;
+  currentSong.setAttribute("src", arrayOfSongs[songIndex]);
+  currentSong.play();
+  let playing = currentSong.play();
+  if (playing) {
+    currentSong.pause();
+  } else {
+    playing;
+  }
+
+  currentSong.onplay = function () {
+    playing;
     playButtons[songIndex].innerText = "pause_circle";
     playButtons[songIndex].classList.add("highlightAudioIcon");
     tracks[songIndex].classList.add("highlight-s-track");
   };
-  song.onpause = function () {
-    isPlaying = false;
+  currentSong.onpause = function () {
     playButtons[songIndex].innerText = "play_circle";
-
     playButtons[songIndex].classList.remove("highlightAudioIcon");
     tracks[songIndex].classList.remove("highlight-s-track");
+    setPausedTrackStyling(songIndex, singleTracks, playButtons, tracks);
   };
 
   previousSongs.forEach((preSong) => {
-    preSong.addEventListener("click", (e) => changeToPreviousSong(e));
+    preSong.addEventListener("click", (e) =>
+      changeToPreviousSong(e, currentSong, songIndex, singleTracks, playButtons, tracks)
+    );
   });
   nextSongs.forEach((nextSong) => {
-    nextSong.addEventListener("click", (e) => changeToNextSong(e));
+    nextSong.addEventListener("click", (e) =>
+      changeToNextSong(e, currentSong, songIndex, singleTracks, playButtons, tracks)
+    );
   });
-  document.addEventListener("play", (e) => styleWhenSongIsPlaying(e), true);
+  document.addEventListener(
+    "play",
+    (e) => onSongChange(e, currentSong, singleTracks, playButtons, tracks, songIndex),
+    true
+  );
+  document.addEventListener(
+    "pause",
+    (e) => onSongChange(e, currentSong, singleTracks, playButtons, tracks, songIndex),
+    true
+  );
 }
 
 //add timeupdate for song

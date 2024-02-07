@@ -26,14 +26,12 @@
 
       <audio
         controls
-        onplay=" document.querySelector('.visible-s-track:nth-of-type(1) .icon-button .material-icons').classList.add('highlightAudioIcon') + document.querySelector('.visible-s-track:nth-of-type(1)').classList.add('highlight-s-track')"
-        id="dancing_flame"
+        src="music/dancing_flame.mp3"
+        onplay=" document.querySelector('.visible-s-track .icon-button .material-icons').classList.add('highlightAudioIcon') + document.querySelector('.visible-s-track:nth-of-type(1)').classList.add('highlight-s-track')"
         ontimeupdate="document.getElementById('tracktime').innerHTML =  ' 0:' + Math.floor(this.currentTime)  + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +  Math.floor(this.duration / 60) + ':00'"
-      >
-        <source src="music/dancing_flame.mp3" type="audio/mpeg" />
-        Your browser does not support the audio element.
-      </audio>
-      <audio
+      ></audio>
+   
+      <!-- <audio
         controls
         onplay=" document.querySelector('.visible-s-track:nth-of-type(2)  button .material-icons').classList.add('highlightAudioIcon') + document.querySelector('.visible-s-track:nth-of-type(2)').classList.add('highlight-s-track')"
         id="baila"
@@ -107,7 +105,7 @@
       >
         <source src="music/True_Moment_-_The_ARTISANS.mp3" type="audio/mpeg" />
         Your browser does not support the audio element.
-      </audio>
+      </audio> -->
       <div class="audio-p" id="audio-player-container">
         <section class="audio-player"></section>
         <section class="playing"></section>
