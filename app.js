@@ -55,17 +55,17 @@ playButtons.forEach((playButton) => {
 //   }
 // }
 
-// function onSongChange(e, currentSong, singleTracks, playButtons, tracks, songIndex) {
-//   if (currentSong != e.target) {
-//     currentSong.pause();
-//     setPausedTrackStyling(songIndex, singleTracks, playButtons, tracks);
-//   } else if (currentSong === e.target) {
-//     currentSong.play();
-//     setTrackStyling(songIndex, singleTracks, playButtons, tracks);
-//   } else {
-//     currentSong.pause();
-//   }
-// }
+ function onSongChange(e, currentSong, singleTracks, playButtons, tracks, songIndex) {
+   if (currentSong != e.target) {
+    currentSong.pause();
+    setPausedTrackStyling(songIndex, singleTracks, playButtons, tracks);
+   } else if (currentSong === e.target) {
+     currentSong.play();
+     setTrackStyling(songIndex, singleTracks, playButtons, tracks);
+   } else {
+     currentSong.pause();
+  }
+}
 // function styleWhenSongIsPaused(e, song) {
 // console.log("music is paused")
 // }
@@ -83,41 +83,31 @@ playButtons.forEach((playButton) => {
 //   });
 // }
 
-// function setPausedTrackStyling(songIndex, singleTracks, playButtons, tracks) {
-//   singleTracks.forEach((singleTrack) => {
-//     singleTrack.style.display = "none";
-//   });
-//   playButtons.forEach((playButton) => {
-//     playButton.innerText = "play_circle";
-//     playButton.classList.remove("highlightAudioIcon");
-//   });
+ function setPausedTrackStyling(songIndex, singleTracks, playButtons, tracks) {
+   singleTracks.forEach((singleTrack) => {
+     singleTrack.style.display = "none";
+   });
+  playButtons.forEach((playButton) => {
+     playButton.innerText = "play_circle";
+    playButton.classList.remove("highlightAudioIcon");
+   });
 
-//   tracks.forEach((track) => {
-//     track.classList.remove("highlight-s-track");
-//   });
-// }
+   tracks.forEach((track) => {
+     track.classList.remove("highlight-s-track");
+   });
+ }
 
 function playMusic(e) {
   let index = e.target.id;
   let songIndex = parseInt(index);
 
   console.log(e.target.id);
+  let song = songs[songIndex].song;
+  if (audio.getAttribute("src" === song)) {
+    audio.pause();
+  } else {
+    audio.setAttribute("src", songs[songIndex].song);
+    audio.play();
+  }
 
-  audio.setAttribute("src", songs[songIndex].song);
-  audio.play();
-
-  currentSong.onplay = function () {
-    playButtons[songIndex].innerText = "pause_circle";
-    playButtons[songIndex].classList.add("highlightAudioIcon");
-    tracks[songIndex].classList.add("highlight-s-track");
-  };
-  currentSong.onpause = function () {
-    playButtons[songIndex].innerText = "play_circle";
-    playButtons[songIndex].classList.remove("highlightAudioIcon");
-    tracks[songIndex].classList.remove("highlight-s-track");
-    setPausedTrackStyling(songIndex, singleTracks, playButtons, tracks);
-  };
-
- 
-  
 }
