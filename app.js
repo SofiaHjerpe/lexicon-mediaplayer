@@ -1,6 +1,5 @@
 import { songs } from "./songs.js";
 let isPlaying = false;
-
 const audio = document.querySelector("audio");
 const audioPlayer = document.querySelector(".audio-player");
 const tracks = document.querySelectorAll(".visible-s-track");
@@ -11,6 +10,7 @@ const previousSong = document.querySelector(".left-button .material-icons");
 const nextSong = document.querySelector(".right-button");
 const button = document.querySelector(".icon_text");
 const timeUpdate = document.querySelector(".inner-time-line");
+const songTimeLine = document.querySelector(".outer-time-line");
 const loop = document.getElementById("rewind");
 const shuffle = document.getElementById("shuffle");
 
@@ -24,7 +24,7 @@ function createTrackListAsHtml(track, index) {
                 </div>
               </section>
               <button class="icon-button" >
-                <i class="material-icons" id="${index}" >
+                <i class="material-icons paused" id="${index}" >
                   play_circle
                 </i>
               </button>
@@ -40,6 +40,7 @@ const defaultTrackAsHtml = songs
 console.log(defaultTrackAsHtml);
 audioPlayer.insertAdjacentHTML("beforeend", defaultTrackAsHtml);
 const playButtons = document.querySelectorAll(".icon-button .material-icons");
+const pauseButtons = document.querySelectorAll(".paused");
 
 playButtons.forEach((playButton) => {
   playButton.addEventListener("click", (e) => playMusic(e));
@@ -74,29 +75,33 @@ function playMusic(e) {
   let songIndex = parseInt(index);
   let title = songs[songIndex].title;
   let songArtist = songs[songIndex].artist;
-  songTitle.innerHTML = title;
-  artist.innerHTML = songArtist;
+  let song = songs[songIndex].song;
 
-  trackImage.setAttribute("src", songs[songIndex].imgSrc);
-  console.log(e.target.id);
-
-  audio.setAttribute("src", songs[songIndex].song);
+  audio.setAttribute("src", song);
   audio.play();
   isPlaying ? audio.pause() : audio.play();
-  button.innerText = "pause_circle";
 
   audio.onplay = function () {
     isPlaying = true;
     setTrackStyling(songIndex, tracks, playButtons);
     button.innerText = "pause_circle";
   };
-
   audio.onpause = function () {
     isPlaying = false;
+    audio.pause();
     playButtons[songIndex].innerText = "play_circle";
-    setPausedTrackStyling(tracks, playButtons);
     button.innerText = "play_circle";
+    setPausedTrackStyling(tracks, playButtons);
   };
+
+  songTitle.innerHTML = title;
+  artist.innerHTML = songArtist;
+
+  trackImage.setAttribute("src", songs[songIndex].imgSrc);
+  console.log(e.target.id);
+
+  button.innerText = "pause_circle";
+
   changeToPreviousSong(songIndex, title, songArtist);
   changeToNextSong(songIndex, title, songArtist);
   loopSong(songIndex, title, songArtist);
@@ -139,6 +144,9 @@ function audioUpdateTimeLine() {
   audio.addEventListener("timeupdate", () => {
     const percent = (audio.currentTime / audio.duration) * 100;
     timeUpdate.style.width = percent + "%";
+    songTimeLine.addEventListener("click", function (e) {
+      audio.currentTime = 30;
+    });
   });
 }
 
