@@ -12,6 +12,7 @@ const nextSong = document.querySelector(".right-button");
 const button = document.querySelector(".icon_text");
 const timeUpdate = document.querySelector(".inner-time-line");
 const loop = document.getElementById("rewind");
+const shuffle = document.getElementById("shuffle");
 
 function createTrackListAsHtml(track, index) {
   return ` <section class="visible-s-track">
@@ -98,11 +99,9 @@ function playMusic(e) {
   };
   changeToPreviousSong(songIndex, title, songArtist);
   changeToNextSong(songIndex, title, songArtist);
-  loopSong(songIndex);
-  audio.addEventListener("timeupdate", () => {
-    const percent = (audio.currentTime / audio.duration) * 100;
-    timeUpdate.style.width = percent + "%";
-  });
+  loopSong(songIndex, title, songArtist);
+  shuffleSong(songIndex, title, songArtist);
+  audioUpdateTimeLine();
 }
 
 function changeToPreviousSong(songIndex, title, songArtist) {
@@ -136,6 +135,13 @@ function changeToNextSong(songIndex, title, songArtist) {
   });
 }
 
+function audioUpdateTimeLine() {
+  audio.addEventListener("timeupdate", () => {
+    const percent = (audio.currentTime / audio.duration) * 100;
+    timeUpdate.style.width = percent + "%";
+  });
+}
+
 function loopSong(songIndex, title, songArtist) {
   loop.addEventListener("click", (e) => {
     e.target.style.color = "#fff";
@@ -156,6 +162,31 @@ function loopSong(songIndex, title, songArtist) {
       if (songIndex === 9) {
         songIndex = 0;
       }
+    });
+  });
+}
+
+function shuffleSong(songIndex, title, songArtist) {
+  shuffle.addEventListener("click", (e) => {
+    e.target.style.color = "#fff";
+    songIndex = Math.floor(Math.random() * 10);
+    audio.setAttribute("src", songs[songIndex].song);
+    audio.play();
+    title = songs[songIndex].title;
+    songArtist = songs[songIndex].artist;
+    trackImage.setAttribute("src", songs[songIndex].imgSrc);
+    songTitle.innerHTML = title;
+    artist.innerHTML = songArtist;
+    console.log("hello! New audio");
+    audio.addEventListener("ended", function (e) {
+      e.target.setAttribute("src", songs[Math.floor(Math.random() * 10)].song);
+      e.target.play();
+
+      title = songs[songIndex].title;
+      songArtist = songs[songIndex].artist;
+      trackImage.setAttribute("src", songs[songIndex].imgSrc);
+      songTitle.innerHTML = title;
+      artist.innerHTML = songArtist;
     });
   });
 }
