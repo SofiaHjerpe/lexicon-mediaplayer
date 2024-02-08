@@ -90,25 +90,25 @@ function playMusic(e) {
     isPlaying = false;
     playButtons[songIndex].innerText = "play_circle";
     //   btnv.innerHTML = "play_circle";
-    setPausedTrackStyling(songIndex);
+    setPausedTrackStyling(songIndex, title, songArtist);
   };
   changeToPreviousSong(songIndex);
 }
-function changeToPreviousSong(songIndex) {
+function changeToPreviousSong(songIndex, title, songArtist) {
   previousSong.addEventListener("click", () => {
-    let newSongIndex = songIndex - 1;
-    let song = songs[newSongIndex].song;
-    let title = songs[newSongIndex].title;
-    let songArtist = songs[newSongIndex].artist;
-    audio.setAttribute("src", song);
-    audio.play();
-    isPlaying ? audio.pause() : audio.play();
-    console.log(newSongIndex);
+    songIndex = songIndex - 1;
 
     songTitle.innerHTML = title;
     artist.innerHTML = songArtist;
+    audio.setAttribute("src", songs[songIndex].song);
 
-    trackImage.setAttribute("src", songs[newSongIndex].imgSrc);
-    console.log(e.target.id);
+    console.log(songIndex);
+
+    audio.play();
+    title = songs[songIndex].title;
+    songArtist = songs[songIndex].artist;
+    songTitle.innerHTML = title;
+    artist.innerHTML = songArtist;
+    trackImage.setAttribute("src", songs[songIndex].imgSrc);
   });
 }
