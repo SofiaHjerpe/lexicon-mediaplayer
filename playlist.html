@@ -24,14 +24,33 @@
         </header>
       </div>
 
-      <audio src="music/dancing_flame.mp3"></audio>
+      <audio></audio>
 
       <div class="audio-p" id="audio-player-container">
         <section class="audio-player"></section>
-        <section class="playing"></section>
+        <section class="playing">
+          <section class="track">
+            <div class="songImageContainer">
+              <img class="songImage" alt="" src="" />
+            </div>
+          </section>
+          <div class="play-row">
+            <i class="material-icons" id="rewind">repeat</i>
+            <button id="play-icon" onclick="play(audio)">
+              <i class="material-icons" id="icon_text">play_circle</i>
+            </button>
+            <i class="material-icons" id="shuffle">shuffle</i>
+          </div>
+          <div class="song-play1">
+            <span class="material-icons"></span>
+            <p></p>
+
+            <span class="material-icons"></span>
+            <p></p>
+          </div>
+        </section>
       </div>
     </div>
     <script src="app.js" type="module"></script>
-    <script src="songs.js" type="module"></script>
   </body>
 </html>

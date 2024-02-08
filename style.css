@@ -195,48 +195,13 @@ section > div > p:nth-child(2) {
   margin: 0;
   text-overflow: ellipsis !important;
 }
-
-.song_image {
-  background-image: url(dancingFlameImg.jpg);
+.track {
+  display: flex;
+  flex-direction: column;
 }
-.song_image,
-.song_image1,
-.song_image2,
-.song_image3,
-.song_image4,
-.song_image5,
-.song_image6 .song_image7 .song_image8 .song_image9 .song_image10 {
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 350px;
-  height: 350px;
-}
-.song_image1 {
-  background-image: url(bailaImg.jpg);
-}
-.song_image2 {
-  background-image: url(coffeeImg.jpg);
-}
-.song_image3 {
-  background-image: url(CristoImg.jpg);
-}
-.song_image4 {
-  background-image: url(evidenveImg.jpg);
-}
-.song_image5 {
-  background-image: url(givemetimeImg.jpg);
-}
-.song_image6 {
-  background-image: url(InBetweenImg.jpg);
-}
-.song_image7 {
-  background-image: url(PlayedImg.jpg);
-}
-.song_image8 {
-  background-image: url(TrueImg.jpg);
-}
-.song_image9 {
-  background-image: url(PlayedImg.jpg);
+.songImage {
+  width: 390px; 
+  height: 390px;
 }
 
 span {
