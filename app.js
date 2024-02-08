@@ -10,6 +10,7 @@ const artist = document.querySelector(".song-info p:nth-of-type(2)");
 const previousSong = document.querySelector(".left-button .material-icons");
 const nextSong = document.querySelector(".right-button");
 const button = document.querySelector(".icon_text");
+const timeUpdate = document.querySelector(".inner-time-line");
 const loop = document.getElementById("rewind");
 
 function createTrackListAsHtml(track, index) {
@@ -92,25 +93,25 @@ function playMusic(e) {
   audio.onpause = function () {
     isPlaying = false;
     playButtons[songIndex].innerText = "play_circle";
-    //   btnv.innerHTML = "play_circle";
     setPausedTrackStyling(tracks, playButtons);
     button.innerText = "play_circle";
   };
   changeToPreviousSong(songIndex, title, songArtist);
   changeToNextSong(songIndex, title, songArtist);
-  loopSong();
+  loopSong(songIndex);
+  audio.addEventListener("timeupdate", () => {
+    const percent = (audio.currentTime / audio.duration) * 100;
+    timeUpdate.style.width = percent + "%";
+  });
 }
 
 function changeToPreviousSong(songIndex, title, songArtist) {
   nextSong.addEventListener("click", () => {
     songIndex = parseInt(songIndex + 1);
-
     songTitle.innerHTML = title;
     artist.innerHTML = songArtist;
     audio.setAttribute("src", songs[songIndex].song);
-
     console.log(songIndex);
-
     audio.play();
     title = songs[songIndex].title;
     songArtist = songs[songIndex].artist;
@@ -122,14 +123,10 @@ function changeToPreviousSong(songIndex, title, songArtist) {
 function changeToNextSong(songIndex, title, songArtist) {
   previousSong.addEventListener("click", () => {
     songIndex = songIndex - 1;
-
     songTitle.innerHTML = title;
     artist.innerHTML = songArtist;
-
     audio.setAttribute("src", songs[songIndex].song);
-
     console.log(songIndex);
-
     audio.play();
     title = songs[songIndex].title;
     songArtist = songs[songIndex].artist;
@@ -139,10 +136,26 @@ function changeToNextSong(songIndex, title, songArtist) {
   });
 }
 
-function loopSong() {
+function loopSong(songIndex, title, songArtist) {
   loop.addEventListener("click", (e) => {
-    audio.loop = true;
-    console.log("active");
     e.target.style.color = "#fff";
+    audio.addEventListener("ended", function () {
+      if (songIndex === 9) {
+        songIndex = 0;
+      } else {
+        songIndex = parseInt(songIndex + 1);
+      }
+
+      audio.setAttribute("src", songs[songIndex].song);
+      audio.play();
+      title = songs[songIndex].title;
+      songArtist = songs[songIndex].artist;
+      trackImage.setAttribute("src", songs[songIndex].imgSrc);
+      songTitle.innerHTML = title;
+      artist.innerHTML = songArtist;
+      if (songIndex === 9) {
+        songIndex = 0;
+      }
+    });
   });
 }
