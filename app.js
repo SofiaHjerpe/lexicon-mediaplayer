@@ -1,15 +1,16 @@
 import { songs } from "./songs.js";
 let isPlaying = false;
+
 const audio = document.querySelector("audio");
 const audioPlayer = document.querySelector(".audio-player");
-const playingSong = document.querySelector(".playing");
 const tracks = document.querySelectorAll(".visible-s-track");
 const trackImage = document.querySelector(".songImage");
-const button = document.getElementById("icon_text");
 const songTitle = document.querySelector(".song-info p:nth-of-type(1)");
 const artist = document.querySelector(".song-info p:nth-of-type(2)");
 const previousSong = document.querySelector(".left-button .material-icons");
 const nextSong = document.querySelector(".right-button");
+const button = document.querySelector(".icon_text");
+const loop = document.getElementById("rewind");
 
 function createTrackListAsHtml(track, index) {
   return ` <section class="visible-s-track">
@@ -42,7 +43,7 @@ playButtons.forEach((playButton) => {
   playButton.addEventListener("click", (e) => playMusic(e));
 });
 
-function setTrackStyling(songIndex) {
+function setTrackStyling(songIndex, tracks, playButtons) {
   playButtons.forEach((playButton) => {
     playButton.innerText = "play_circle";
     playButton.classList.remove("highlightAudioIcon");
@@ -55,7 +56,7 @@ function setTrackStyling(songIndex) {
   tracks[songIndex].classList.add("highlight-s-track");
 }
 
-function setPausedTrackStyling(songIndex) {
+function setPausedTrackStyling(tracks, playButtons) {
   playButtons.forEach((playButton) => {
     playButton.innerText = "play_circle";
     playButton.classList.remove("highlightAudioIcon");
@@ -80,21 +81,26 @@ function playMusic(e) {
   audio.setAttribute("src", songs[songIndex].song);
   audio.play();
   isPlaying ? audio.pause() : audio.play();
+  button.innerText = "pause_circle";
 
   audio.onplay = function () {
     isPlaying = true;
-    setTrackStyling(songIndex);
+    setTrackStyling(songIndex, tracks, playButtons);
+    button.innerText = "pause_circle";
   };
 
   audio.onpause = function () {
     isPlaying = false;
     playButtons[songIndex].innerText = "play_circle";
     //   btnv.innerHTML = "play_circle";
-    setPausedTrackStyling(songIndex, title, songArtist);
+    setPausedTrackStyling(tracks, playButtons);
+    button.innerText = "play_circle";
   };
   changeToPreviousSong(songIndex, title, songArtist);
   changeToNextSong(songIndex, title, songArtist);
+  loopSong();
 }
+
 function changeToPreviousSong(songIndex, title, songArtist) {
   nextSong.addEventListener("click", () => {
     songIndex = parseInt(songIndex + 1);
@@ -119,6 +125,7 @@ function changeToNextSong(songIndex, title, songArtist) {
 
     songTitle.innerHTML = title;
     artist.innerHTML = songArtist;
+
     audio.setAttribute("src", songs[songIndex].song);
 
     console.log(songIndex);
@@ -129,5 +136,13 @@ function changeToNextSong(songIndex, title, songArtist) {
     songTitle.innerHTML = title;
     artist.innerHTML = songArtist;
     trackImage.setAttribute("src", songs[songIndex].imgSrc);
+  });
+}
+
+function loopSong() {
+  loop.addEventListener("click", (e) => {
+    audio.loop = true;
+    console.log("active");
+    e.target.style.color = "#fff";
   });
 }
