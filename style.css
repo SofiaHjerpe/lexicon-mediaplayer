@@ -195,12 +195,32 @@ section > div > p:nth-child(2) {
   margin: 0;
   text-overflow: ellipsis !important;
 }
+.playing p {
+  color: #fff;
+  padding: 0;
+  margin: 0;
+}
+.playing {
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
 .track {
   display: flex;
   flex-direction: column;
 }
+.song-play1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 250px;
+}
+.song-play1 .material-icons {
+  font-size: 40px;
+}
 .songImage {
-  width: 390px; 
+  width: 390px;
   height: 390px;
 }
 

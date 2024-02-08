@@ -3,6 +3,13 @@ let isPlaying = false;
 const audio = document.querySelector("audio");
 const audioPlayer = document.querySelector(".audio-player");
 const playingSong = document.querySelector(".playing");
+const tracks = document.querySelectorAll(".visible-s-track");
+const trackImage = document.querySelector(".songImage");
+const button = document.getElementById("icon_text");
+const songTitle = document.querySelector(".song-info p:nth-of-type(1)");
+const artist = document.querySelector(".song-info p:nth-of-type(2)");
+const previousSong = document.querySelector(".left-button .material-icons");
+const nextSong = document.querySelector(".right");
 
 function createTrackListAsHtml(track, index) {
   return ` <section class="visible-s-track">
@@ -31,30 +38,9 @@ console.log(defaultTrackAsHtml);
 audioPlayer.insertAdjacentHTML("beforeend", defaultTrackAsHtml);
 const playButtons = document.querySelectorAll(".icon-button .material-icons");
 
-const tracks = document.querySelectorAll(".visible-s-track");
-const trackImage = document.querySelector(".songImage");
-const previousSongs = document.querySelectorAll(".change-song-btn:nth-of-type(1)");
-const nextSongs = document.querySelectorAll(".change-song-btn:nth-of-type(2)");
-
 playButtons.forEach((playButton) => {
   playButton.addEventListener("click", (e) => playMusic(e));
 });
-
-// function changeToPreviousSong(e, audio, songIndex,playButtons, tracks) {
-//   console.log(e.target.id);
-//   let index = e.target.id - 1;
-//   let preIndex = parseInt(index);
-//   let newSongIndex = songIndex - 1;
-//   if (newSongIndex != preIndex) {
-//     audio.setAttribute("src", arrayOfSongs[newSongIndex]);
-//     audio.pause();
-//     setPausedTrackStyling(songIndex, , playButtons, tracks);
-//   } else if (newSongIndex === preIndex) {
-//     audio.setAttribute("src", arrayOfSongs[newSongIndex]);
-//     audio.play();
-//     setTrackStyling(songIndex, , playButtons, tracks);
-//   }
-// }
 
 function setTrackStyling(songIndex) {
   playButtons.forEach((playButton) => {
@@ -83,6 +69,10 @@ function setPausedTrackStyling(songIndex) {
 function playMusic(e) {
   let index = e.target.id;
   let songIndex = parseInt(index);
+  let title = songs[songIndex].title;
+  let songArtist = songs[songIndex].artist;
+  songTitle.innerHTML = title;
+  artist.innerHTML = songArtist;
 
   trackImage.setAttribute("src", songs[songIndex].imgSrc);
   console.log(e.target.id);
@@ -93,7 +83,7 @@ function playMusic(e) {
 
   audio.onplay = function () {
     isPlaying = true;
-    setTrackStyling(songIndex, playButtons, tracks);
+    setTrackStyling(songIndex);
   };
 
   audio.onpause = function () {
@@ -102,4 +92,23 @@ function playMusic(e) {
     //   btnv.innerHTML = "play_circle";
     setPausedTrackStyling(songIndex);
   };
+  changeToPreviousSong(songIndex);
+}
+function changeToPreviousSong(songIndex) {
+  previousSong.addEventListener("click", () => {
+    let newSongIndex = songIndex - 1;
+    let song = songs[newSongIndex].song;
+    let title = songs[newSongIndex].title;
+    let songArtist = songs[newSongIndex].artist;
+    audio.setAttribute("src", song);
+    audio.play();
+    isPlaying ? audio.pause() : audio.play();
+    console.log(newSongIndex);
+
+    songTitle.innerHTML = title;
+    artist.innerHTML = songArtist;
+
+    trackImage.setAttribute("src", songs[newSongIndex].imgSrc);
+    console.log(e.target.id);
+  });
 }
