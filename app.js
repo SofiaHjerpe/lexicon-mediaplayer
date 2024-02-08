@@ -9,7 +9,7 @@ const button = document.getElementById("icon_text");
 const songTitle = document.querySelector(".song-info p:nth-of-type(1)");
 const artist = document.querySelector(".song-info p:nth-of-type(2)");
 const previousSong = document.querySelector(".left-button .material-icons");
-const nextSong = document.querySelector(".right");
+const nextSong = document.querySelector(".right-button");
 
 function createTrackListAsHtml(track, index) {
   return ` <section class="visible-s-track">
@@ -92,9 +92,28 @@ function playMusic(e) {
     //   btnv.innerHTML = "play_circle";
     setPausedTrackStyling(songIndex, title, songArtist);
   };
-  changeToPreviousSong(songIndex);
+  changeToPreviousSong(songIndex, title, songArtist);
+  changeToNextSong(songIndex, title, songArtist);
 }
 function changeToPreviousSong(songIndex, title, songArtist) {
+  nextSong.addEventListener("click", () => {
+    songIndex = parseInt(songIndex + 1);
+
+    songTitle.innerHTML = title;
+    artist.innerHTML = songArtist;
+    audio.setAttribute("src", songs[songIndex].song);
+
+    console.log(songIndex);
+
+    audio.play();
+    title = songs[songIndex].title;
+    songArtist = songs[songIndex].artist;
+    songTitle.innerHTML = title;
+    artist.innerHTML = songArtist;
+    trackImage.setAttribute("src", songs[songIndex].imgSrc);
+  });
+}
+function changeToNextSong(songIndex, title, songArtist) {
   previousSong.addEventListener("click", () => {
     songIndex = songIndex - 1;
 
