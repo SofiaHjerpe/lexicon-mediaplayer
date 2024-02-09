@@ -1,5 +1,4 @@
 import { songs } from "./songs.js";
-let isPlaying = false;
 const audio = document.querySelector("audio");
 const audioPlayer = document.querySelector(".audio-player");
 const tracks = document.querySelectorAll(".visible-s-track");
@@ -69,6 +68,13 @@ function setPausedTrackStyling(tracks, playButtons) {
     track.classList.remove("highlight-s-track");
   });
 }
+function playSong(song) {
+  audio.setAttribute("src", song);
+  audio.play();
+}
+function pauseSong() {
+  audio.pause();
+}
 
 function playMusic(e) {
   let index = e.target.id;
@@ -76,23 +82,18 @@ function playMusic(e) {
   let title = songs[songIndex].title;
   let songArtist = songs[songIndex].artist;
   let song = songs[songIndex].song;
-
-  audio.setAttribute("src", song);
-  audio.play();
-  isPlaying ? audio.pause() : audio.play();
-
-  audio.onplay = function () {
-    isPlaying = true;
-    setTrackStyling(songIndex, tracks, playButtons);
-    button.innerText = "pause_circle";
-  };
-  audio.onpause = function () {
-    isPlaying = false;
-    audio.pause();
+  if (audio.getAttribute("src") === song) {
+    pauseSong();
     playButtons[songIndex].innerText = "play_circle";
     button.innerText = "play_circle";
     setPausedTrackStyling(tracks, playButtons);
-  };
+  } else {
+    playSong(song);
+    setTrackStyling(songIndex, tracks, playButtons);
+    button.innerText = "pause_circle";
+  }
+
+  audio.onplay = function () {};
 
   songTitle.innerHTML = title;
   artist.innerHTML = songArtist;
@@ -199,12 +200,13 @@ function shuffleSong(songIndex, title, songArtist) {
     artist.innerHTML = songArtist;
     console.log("hello! New audio");
     audio.addEventListener("ended", function (e) {
-      e.target.setAttribute("src", songs[Math.floor(Math.random() * 10)].song);
+      let shuffleIndex = Math.floor(Math.random() * 10);
+      e.target.setAttribute("src", songs[shuffleIndex].song);
       e.target.play();
-
-      title = songs[songIndex].title;
-      songArtist = songs[songIndex].artist;
-      trackImage.setAttribute("src", songs[songIndex].imgSrc);
+      button.innerHTML = "pause_circle";
+      title = songs[shuffleIndex].title;
+      songArtist = songs[shuffleIndex].artist;
+      trackImage.setAttribute("src", songs[shuffleIndex].imgSrc);
       songTitle.innerHTML = title;
       artist.innerHTML = songArtist;
     });
