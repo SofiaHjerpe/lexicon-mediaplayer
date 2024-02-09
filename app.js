@@ -81,32 +81,26 @@ function playMusic(e) {
   let title = songs[songIndex].title;
   let songArtist = songs[songIndex].artist;
   let song = songs[songIndex].song;
-  if (audio.getAttribute("src") === song) {
-    pauseSong();
-    playButtons[songIndex].innerText = "play_circle";
-    button.innerText = "play_circle";
-    setPausedTrackStyling(tracks, playButtons);
-  } else {
-    playSong(song);
-    setTrackStyling(songIndex, tracks, playButtons);
-    button.innerText = "pause_circle";
-  }
-
-
   songTitle.innerHTML = title;
   artist.innerHTML = songArtist;
 
   trackImage.setAttribute("src", songs[songIndex].imgSrc);
   console.log(e.target.id);
-
+  audioUpdateTimeLine();
+  audioChangeProgress();
   button.innerText = "pause_circle";
+  if (audio.getAttribute("src") === song) {
+    pauseSong();
+    setPausedTrackStyling(tracks, playButtons);
+  } else {
+    playSong(song);
+    setTrackStyling(songIndex, tracks, playButtons);
+  }
 
   changeToPreviousSong(songIndex, title, songArtist);
   changeToNextSong(songIndex, title, songArtist);
   loopSong(songIndex, title, songArtist);
   shuffleSong(songIndex, title, songArtist);
-  audioUpdateTimeLine();
-  audioChangeProgress();
 }
 
 function changeToPreviousSong(songIndex, title, songArtist) {
