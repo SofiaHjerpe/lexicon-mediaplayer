@@ -12,7 +12,10 @@ const timeUpdate = document.querySelector(".inner-time-line");
 const progressContainer = document.querySelector(".outer-time-line");
 const loop = document.getElementById("rewind");
 const shuffle = document.getElementById("shuffle");
-
+let songIndex = 0;
+let currentSong = songs[0].song;
+let title = songs[0].title;
+let songArtist = songs[0].artist;
 function createTrackListAsHtml(track, index) {
   return ` <section class="visible-s-track">
               <section>
@@ -44,103 +47,89 @@ playButtons.forEach((playButton) => {
   playButton.addEventListener("click", (e) => playMusic(e));
 });
 
-function setTrackStyling(songIndex, tracks, playButtons) {
+function setTrackStyling(playBtnElement) {
   playButtons.forEach((playButton) => {
     playButton.innerText = "play_circle";
     playButton.classList.remove("highlightAudioIcon");
+    playButton.closest(".visible-s-track").classList.remove("highlight-s-track");
   });
-  tracks.forEach((track) => {
-    track.classList.remove("highlight-s-track");
-  });
-  playButtons[songIndex].innerText = "pause_circle";
-  playButtons[songIndex].classList.add("highlightAudioIcon");
-  tracks[songIndex].classList.add("highlight-s-track");
+  playBtnElement.innerText = "pause_circle";
+  playBtnElement.classList.add("highlightAudioIcon");
+  playBtnElement.closest(".visible-s-track").classList.add("highlight-s-track");
 }
 
-function setPausedTrackStyling(tracks, playButtons) {
-  playButtons.forEach((playButton) => {
-    playButton.innerText = "play_circle";
-    playButton.classList.remove("highlightAudioIcon");
-  });
-
-  tracks.forEach((track) => {
-    track.classList.remove("highlight-s-track");
-  });
+function setPausedTrackStyling(playBtnElement) {
+  playBtnElement.innerText = "play_circle";
+  playBtnElement.classList.remove("highlightAudioIcon");
+  playBtnElement.closest(".visible-s-track").classList.remove("highlight-s-track");
 }
-function playSong(song) {
-  audio.setAttribute("src", song);
+function playSong(currentSong, playBtn) {
+  audio.getAttribute("src") !== currentSong && audio.setAttribute("src", currentSong);
+
+  setTrackStyling(playBtn);
   audio.play();
 }
-function pauseSong() {
+function pauseSong(playBtn) {
   audio.pause();
+  setPausedTrackStyling(playBtn);
 }
 
 function playMusic(e) {
-  let index = e.target.id;
+  const playBtn = e.target;
+  let index = playBtn.id;
   let songIndex = parseInt(index);
-  let title = songs[songIndex].title;
-  let songArtist = songs[songIndex].artist;
-  let song = songs[songIndex].song;
+  currentSong = songs[songIndex].song;
+  title = songs[songIndex].title;
+  songArtist = songs[songIndex].artist;
   songTitle.innerHTML = title;
   artist.innerHTML = songArtist;
 
   trackImage.setAttribute("src", songs[songIndex].imgSrc);
-  console.log(e.target.id);
-  audioUpdateTimeLine();
-  audioChangeProgress();
-  changeToPreviousSong(songIndex, title, songArtist);
-  changeToNextSong(songIndex, title, songArtist);
-  loopSong(songIndex, title, songArtist);
-  shuffleSong(songIndex, title, songArtist);
+
   button.innerText = "pause_circle";
-  if (audio.getAttribute("src") === song) {
-    pauseSong();
-    setPausedTrackStyling(tracks, playButtons);
+  if (audio.getAttribute("src") === currentSong) {
+    audio.paused ? playSong(currentSong, playBtn) : pauseSong(playBtn);
   } else {
-    playSong(song);
-    setTrackStyling(songIndex, tracks, playButtons);
+    audio.setAttribute("src", currentSong);
+    playSong(currentSong, playBtn);
   }
 }
 
-function changeToPreviousSong(songIndex, title, songArtist) {
-  prevBtn.addEventListener("click", () => {
-    songIndex = parseInt(songIndex + 1);
-    songTitle.innerHTML = title;
-    artist.innerHTML = songArtist;
-    audio.setAttribute("src", songs[songIndex].song);
-    console.log(songIndex);
-    audio.play();
-    title = songs[songIndex].title;
-    songArtist = songs[songIndex].artist;
-    songTitle.innerHTML = title;
-    artist.innerHTML = songArtist;
-    trackImage.setAttribute("src", songs[songIndex].imgSrc);
-  });
-}
-function changeToNextSong(songIndex, title, songArtist) {
-  nextBtn.addEventListener("click", () => {
-    songIndex = songIndex - 1;
-    songTitle.innerHTML = title;
-    artist.innerHTML = songArtist;
-    audio.setAttribute("src", songs[songIndex].song);
-    console.log(songIndex);
-    audio.play();
-    title = songs[songIndex].title;
-    songArtist = songs[songIndex].artist;
-    songTitle.innerHTML = title;
-    artist.innerHTML = songArtist;
-    trackImage.setAttribute("src", songs[songIndex].imgSrc);
-  });
-}
+audio.addEventListener("timeupdate", (e) => updateProgress(e));
+progressContainer.addEventListener("click", setProgress);
+
+prevBtn.addEventListener("click", () => {
+  songIndex = parseInt(songIndex + 1);
+  songTitle.innerHTML = title;
+  artist.innerHTML = songArtist;
+  audio.setAttribute("src", songs[songIndex].song);
+  console.log(songIndex);
+  audio.play();
+  title = songs[songIndex].title;
+  songArtist = songs[songIndex].artist;
+  songTitle.innerHTML = title;
+  artist.innerHTML = songArtist;
+  trackImage.setAttribute("src", songs[songIndex].imgSrc);
+});
+
+nextBtn.addEventListener("click", () => {
+  songIndex = songIndex - 1;
+  songTitle.innerHTML = title;
+  artist.innerHTML = songArtist;
+  audio.setAttribute("src", songs[songIndex].song);
+  console.log(songIndex);
+  audio.play();
+  title = songs[songIndex].title;
+  songArtist = songs[songIndex].artist;
+  songTitle.innerHTML = title;
+  artist.innerHTML = songArtist;
+  trackImage.setAttribute("src", songs[songIndex].imgSrc);
+});
 
 function updateProgress(e) {
   console.log(e.target.currentTime);
   const percent = (e.target.currentTime / e.target.duration) * 100;
   timeUpdate.style.width = percent + "%";
-}
-
-function audioUpdateTimeLine() {
-  audio.addEventListener("timeupdate", (e) => updateProgress(e));
 }
 
 function setProgress(e) {
@@ -150,38 +139,15 @@ function setProgress(e) {
   audio.currentTime = (clickX / width) * duration;
 }
 
-function audioChangeProgress() {
-  progressContainer.addEventListener("click", setProgress);
-}
+loop.addEventListener("click", (e) => {
+  e.target.style.color = "#fff";
+  audio.addEventListener("ended", function () {
+    if (songIndex === -1) {
+      songIndex = 0;
+    } else {
+      songIndex = parseInt(songIndex + 1);
+    }
 
-function loopSong(songIndex, title, songArtist) {
-  loop.addEventListener("click", (e) => {
-    e.target.style.color = "#fff";
-    audio.addEventListener("ended", function () {
-      if (songIndex === 9) {
-        songIndex = 0;
-      } else {
-        songIndex = parseInt(songIndex + 1);
-      }
-
-      audio.setAttribute("src", songs[songIndex].song);
-      audio.play();
-      title = songs[songIndex].title;
-      songArtist = songs[songIndex].artist;
-      trackImage.setAttribute("src", songs[songIndex].imgSrc);
-      songTitle.innerHTML = title;
-      artist.innerHTML = songArtist;
-      if (songIndex === 9) {
-        songIndex = 0;
-      }
-    });
-  });
-}
-
-function shuffleSong(songIndex, title, songArtist) {
-  shuffle.addEventListener("click", (e) => {
-    e.target.style.color = "#fff";
-    songIndex = Math.floor(Math.random() * 10);
     audio.setAttribute("src", songs[songIndex].song);
     audio.play();
     title = songs[songIndex].title;
@@ -189,17 +155,29 @@ function shuffleSong(songIndex, title, songArtist) {
     trackImage.setAttribute("src", songs[songIndex].imgSrc);
     songTitle.innerHTML = title;
     artist.innerHTML = songArtist;
-    console.log("hello! New audio");
-    audio.addEventListener("ended", function (e) {
-      let shuffleIndex = Math.floor(Math.random() * 10);
-      e.target.setAttribute("src", songs[shuffleIndex].song);
-      e.target.play();
-      button.innerHTML = "pause_circle";
-      title = songs[shuffleIndex].title;
-      songArtist = songs[shuffleIndex].artist;
-      trackImage.setAttribute("src", songs[shuffleIndex].imgSrc);
-      songTitle.innerHTML = title;
-      artist.innerHTML = songArtist;
-    });
   });
-}
+});
+
+shuffle.addEventListener("click", (e) => {
+  e.target.style.color = "#fff";
+  songIndex = Math.floor(Math.random() * 10);
+  audio.setAttribute("src", songs[songIndex].song);
+  audio.play();
+  title = songs[songIndex].title;
+  songArtist = songs[songIndex].artist;
+  trackImage.setAttribute("src", songs[songIndex].imgSrc);
+  songTitle.innerHTML = title;
+  artist.innerHTML = songArtist;
+  console.log("hello! New audio");
+  audio.addEventListener("ended", function (e) {
+    let shuffleIndex = Math.floor(Math.random() * 10);
+    e.target.setAttribute("src", songs[shuffleIndex].song);
+    e.target.play();
+    button.innerHTML = "pause_circle";
+    title = songs[shuffleIndex].title;
+    songArtist = songs[shuffleIndex].artist;
+    trackImage.setAttribute("src", songs[shuffleIndex].imgSrc);
+    songTitle.innerHTML = title;
+    artist.innerHTML = songArtist;
+  });
+});
