@@ -6,11 +6,11 @@ const tracks = document.querySelectorAll(".visible-s-track");
 const trackImage = document.querySelector(".songImage");
 const songTitle = document.querySelector(".song-info p:nth-of-type(1)");
 const artist = document.querySelector(".song-info p:nth-of-type(2)");
-const previousSong = document.querySelector(".left-button .material-icons");
-const nextSong = document.querySelector(".right-button");
+const prevBtn = document.querySelector(" .right-button");
+const nextBtn = document.querySelector(".left-button");
 const button = document.querySelector(".icon_text");
 const timeUpdate = document.querySelector(".inner-time-line");
-const songTimeLine = document.querySelector(".outer-time-line");
+const progressContainer = document.querySelector(".outer-time-line");
 const loop = document.getElementById("rewind");
 const shuffle = document.getElementById("shuffle");
 
@@ -107,10 +107,11 @@ function playMusic(e) {
   loopSong(songIndex, title, songArtist);
   shuffleSong(songIndex, title, songArtist);
   audioUpdateTimeLine();
+  audioChangeProgress();
 }
 
 function changeToPreviousSong(songIndex, title, songArtist) {
-  nextSong.addEventListener("click", () => {
+  prevBtn.addEventListener("click", () => {
     songIndex = parseInt(songIndex + 1);
     songTitle.innerHTML = title;
     artist.innerHTML = songArtist;
@@ -125,7 +126,7 @@ function changeToPreviousSong(songIndex, title, songArtist) {
   });
 }
 function changeToNextSong(songIndex, title, songArtist) {
-  previousSong.addEventListener("click", () => {
+  nextBtn.addEventListener("click", () => {
     songIndex = songIndex - 1;
     songTitle.innerHTML = title;
     artist.innerHTML = songArtist;
@@ -140,14 +141,25 @@ function changeToNextSong(songIndex, title, songArtist) {
   });
 }
 
+function updateProgress(e) {
+  console.log(e.target.currentTime);
+  const percent = (e.target.currentTime / e.target.duration) * 100;
+  timeUpdate.style.width = percent + "%";
+}
+
 function audioUpdateTimeLine() {
-  audio.addEventListener("timeupdate", () => {
-    const percent = (audio.currentTime / audio.duration) * 100;
-    timeUpdate.style.width = percent + "%";
-    songTimeLine.addEventListener("click", function (e) {
-      audio.currentTime = 30;
-    });
-  });
+  audio.addEventListener("timeupdate", (e) => updateProgress(e));
+}
+
+function setProgress(e) {
+  const width = this.clientWidth;
+  const clickX = e.offsetX;
+  const duration = audio.duration;
+  audio.currentTime = (clickX / width) * duration;
+}
+
+function audioChangeProgress() {
+  progressContainer.addEventListener("click", setProgress);
 }
 
 function loopSong(songIndex, title, songArtist) {
