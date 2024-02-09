@@ -88,6 +88,10 @@ function playMusic(e) {
   console.log(e.target.id);
   audioUpdateTimeLine();
   audioChangeProgress();
+  changeToPreviousSong(songIndex, title, songArtist);
+  changeToNextSong(songIndex, title, songArtist);
+  loopSong(songIndex, title, songArtist);
+  shuffleSong(songIndex, title, songArtist);
   button.innerText = "pause_circle";
   if (audio.getAttribute("src") === song) {
     pauseSong();
@@ -96,11 +100,6 @@ function playMusic(e) {
     playSong(song);
     setTrackStyling(songIndex, tracks, playButtons);
   }
-
-  changeToPreviousSong(songIndex, title, songArtist);
-  changeToNextSong(songIndex, title, songArtist);
-  loopSong(songIndex, title, songArtist);
-  shuffleSong(songIndex, title, songArtist);
 }
 
 function changeToPreviousSong(songIndex, title, songArtist) {
