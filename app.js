@@ -39,7 +39,6 @@ const defaultTrackAsHtml = songs
 console.log(defaultTrackAsHtml);
 audioPlayer.insertAdjacentHTML("beforeend", defaultTrackAsHtml);
 const playButtons = document.querySelectorAll(".icon-button .material-icons");
-const pauseButtons = document.querySelectorAll(".paused");
 
 playButtons.forEach((playButton) => {
   playButton.addEventListener("click", (e) => playMusic(e));
@@ -93,7 +92,6 @@ function playMusic(e) {
     button.innerText = "pause_circle";
   }
 
-  audio.onplay = function () {};
 
   songTitle.innerHTML = title;
   artist.innerHTML = songArtist;
